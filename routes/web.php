@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\IngresosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,4 +32,7 @@ Route::middleware([
     Route::get('/Students', function () {
         return view('garden.Students');
     })->name('Students');
+
+    Route::post('/prueba', [IngresosController::class, 'index'])->name('prueba');
 });
+

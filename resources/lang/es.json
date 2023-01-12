@@ -184,6 +184,11 @@
     "Your email address is not verified.": "Su dirección de correo electrónico no está verificada.",
     "Students": "Alumnos",
     "Incomes": "Ingresos",
+    "Manage Incomes": "Administrar ingresos",
     "Welcome_title": "¡Bienvenida a tu aplicación System plus! ",
-    "Welcome_subtitle": "Esta aplicación proporciona un ecosistema hermoso y robusto para el manejo y la administración de su alumnos nuevo y antiguos. System plus está diseñado para ayudarle a consultar información, agregar información y o editar información en caso de ser necesario para el registro de sus alumnos."
+    "Welcome_subtitle": "Esta aplicación proporciona un ecosistema hermoso y robusto para el manejo y la administración de su alumnos nuevo y antiguos. System plus está diseñado para ayudarle a consultar información, agregar información y o editar información en caso de ser necesario para el registro de sus alumnos.",
+    "Enter Estudent": "Ingresar estudiante",
+    "Full Name": "Nombres y apellidos",
+    "Registration": "Matricula",
+    "Level": "Nivel"
 }

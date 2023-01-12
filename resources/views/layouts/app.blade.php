@@ -15,10 +15,10 @@
         <!-- Styles -->
         @livewireStyles
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-        <!-- Scripts -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <script src="{{ asset('js/app.js') }}" defer></script>
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/formulario.css') }}">
+        <!-- Scripts -->
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
     </head>
     <body class="font-sans antialiased">
@@ -29,11 +29,11 @@
 
             <!-- Page Heading -->
             @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
+            <header class="bg-white shadow">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    {{ $header }}
+                </div>
+            </header>
             @endif
 
             <!-- Page Content -->
@@ -45,5 +45,8 @@
         @stack('modals')
 
         @livewireScripts
+        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('js/formulario.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.min.js"></script>
     </body>
 </html>
