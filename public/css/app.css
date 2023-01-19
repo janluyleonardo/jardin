@@ -190,6 +190,8 @@ button,
 [type='reset'],
 [type='submit'] {
   -webkit-appearance: button; /* 1 */
+  -o-appearance: button; /* 1 */
+  appearance: button; /* 1 */
   background-color: transparent; /* 2 */
   background-image: none; /* 2 */
 }
@@ -234,6 +236,8 @@ Correct the cursor style of increment and decrement buttons in Safari.
 
 [type='search'] {
   -webkit-appearance: textfield; /* 1 */
+  -o-appearance: textfield; /* 1 */
+  appearance: textfield; /* 1 */
   outline-offset: -2px; /* 2 */
 }
 
@@ -355,7 +359,6 @@ iframe,
 embed,
 object {
   display: block; /* 1 */
-  vertical-align: middle; /* 2 */
 }
 
 /*
@@ -1229,6 +1232,14 @@ select {
   margin-left: 0.75rem;
   margin-right: 0.75rem;
 }
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
 .ml-3 {
   margin-left: 0.75rem;
 }
@@ -1654,6 +1665,10 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
+.bg-gray-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+}
 .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
 }
@@ -1732,6 +1747,10 @@ select {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
 }
+.py-0 {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
 .pt-6 {
   padding-top: 1.5rem;
 }
@@ -1765,6 +1784,9 @@ select {
 .pt-8 {
   padding-top: 2rem;
 }
+.pt-3 {
+  padding-top: 0.75rem;
+}
 .text-left {
   text-align: left;
 }
@@ -1773,6 +1795,9 @@ select {
 }
 .text-right {
   text-align: right;
+}
+.align-middle {
+  vertical-align: middle;
 }
 .font-sans {
   font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";

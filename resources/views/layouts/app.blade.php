@@ -16,9 +16,10 @@
         @livewireStyles
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ asset('css/formulario.css') }}">
         <link rel="stylesheet" href="{{ asset('css/input.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/modals.css') }}">
         <!-- icons -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
         <!-- Scripts -->
@@ -29,7 +30,7 @@
     <body class="font-sans antialiased">
         <x-jet-banner />
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-gray-300">
             @livewire('navigation-menu')
 
             <!-- Page Heading -->
