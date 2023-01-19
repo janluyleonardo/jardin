@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Estudent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -45,11 +46,18 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Request $request)
     {
+        // $estudiantes = Estudent::all();
+        $student = trim($request->get('texto'));
+        $estudiantes = DB::table('estudents')
+        // ->select('name','email','program','updated_at')
+        ->where('nomAlumno','LIKE','%'.$student.'%')
+        ->orWhere('numDocumento','LIKE','%'.$student.'%')
+        ->orderByDesc('id')
+        ->paginate(10);
         $mensaje ="";
-        $estudiantes = Estudent::all();
-        return view('garden.Students',compact('estudiantes','mensaje'));
+        return view('garden.Students',compact('estudiantes','mensaje','student'));
     }
 
     /**

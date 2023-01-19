@@ -17,10 +17,10 @@
                                     <div class="row">
                                         <div class="col-md-6">{{__('Records in database')}}</div>
                                         <div class="col-md-6" >
-                                            <form action="" method="get">
+                                            <form action="{{route('Students')}}" method="get">
                                                 <div class="row form-row">
                                                     <div class="col-md-8 my-1">
-                                                        <input type="text" class="form-control" name="texto" id="texto" value="">
+                                                        <input type="text" class="form-control" name="texto" id="texto" value="{{$student}}">
                                                     </div>
                                                     <div class="col-md-4 my-1">
                                                         <input type="submit" class="sombra btn btn-primary" value="Buscar">
@@ -67,10 +67,10 @@
                                                         <!-- Modal show-->
                                                         <div class="modal fade" id="showModal{{$estudiante->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                             <div class="modal-dialog">
-                                                            <div class="modal-content sombra bg-1">
-                                                                <div class="modal-header">
-                                                                <h1 class="modal-title fs-5" id="exampleModalLabel">{{ Str::upper($estudiante->nomAlumno)}}</h1>
-                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            <div class="modal-content sombra bg-white">
+                                                                <div class="modal-header sombra bn-100">
+                                                                <h1 class="modal-title fs-5 mx-auto" id="exampleModalLabel">{{ Str::upper($estudiante->nomAlumno)}}</h1>
+                                                                <button type="button" class="btn-close sombra" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <div class="row">
@@ -105,8 +105,8 @@
                                                                         <div class="col-md-5">Telefono:</div><div class="col-md-7">{{ $estudiante->telSegRes}}</div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                <div class="modal-footer bn-100">
+                                                                <button type="button" class=" sombra btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                                                 </div>
                                                             </div>
                                                             </div>
@@ -148,15 +148,15 @@
                                                             </div>
                                                         </div>
                                                     @endforeach
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <td colspan="6">
+                                                            {{$estudiantes->links()}}
+                                                        </td>
+                                                    </tr>
+                                                </tfoot>
                                             @endif
-                                            </tbody>
-                                            <tfoot>
-                                                <tr>
-                                                    <td colspan="6">
-                                                        {{-- {{$estudiantes->links()}} --}}
-                                                    </td>
-                                                </tr>
-                                            </tfoot>
                                         </table>
                                     </div>
                                 </div>
