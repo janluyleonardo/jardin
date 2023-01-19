@@ -48,10 +48,9 @@ class AdminController extends Controller
      */
     public function show(Request $request)
     {
-        // $estudiantes = Estudent::all();
         $student = trim($request->get('texto'));
         $estudiantes = DB::table('estudents')
-        // ->select('name','email','program','updated_at')
+        // ->select('name','email','program','updated_at') //co esta linea se traen columnas especificas de la tabla
         ->where('nomAlumno','LIKE','%'.$student.'%')
         ->orWhere('numDocumento','LIKE','%'.$student.'%')
         ->orderByDesc('id')

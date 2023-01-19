@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\IngresosController;
+use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\AdminController;
 
 /*
@@ -29,6 +29,6 @@ Route::middleware([
     })->name('dashboard');
     Route::get('/Incomes', [AdminController::class, 'index'])->name('Incomes');
     Route::get('/Students', [AdminController::class, 'show'])->name('Students');
-    Route::post('/guardar', [IngresosController::class, 'create'])->name('guardar');
+    Route::post('/guardar', [StudentsController::class, 'create'])->name('guardar');
 });
 

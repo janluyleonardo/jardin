@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Estudent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class IngresosController extends Controller
+class StudentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,6 +25,8 @@ class IngresosController extends Controller
      */
     public function create(Request $request)
     {
+        $student=$request->nomAlumno;
+
         $Estudent = new Estudent();
 
         $Estudent->nivel = $request->nivel;
@@ -59,7 +62,9 @@ class IngresosController extends Controller
 
         $Estudent->save();
         $mensaje="Registro almacenado";
-        return view('garden.Students',compact('mensaje'));
+        $estudiantes = DB::table('estudents')->orderByDesc('id')->paginate(10);
+
+        return view('garden.Students',compact('mensaje','student','estudiantes'));
     }
 
     /**

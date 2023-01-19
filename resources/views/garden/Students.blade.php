@@ -5,13 +5,19 @@
         </h2>
     </x-slot>
 
-    {{ $mensaje }}
     <div class="py-3">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="container">
                     <div class="row py-0">
                         <div class="col-md-6 mx-auto py-4">
+                            @if ($mensaje != "")
+                            <div class="col-md-12">
+                                <div class="alert alert-success mt-auto" role="alert">
+                                    <h1>{{ $mensaje }}</h1>
+                                </div>
+                            </div>
+                            @endif
                             <div class="card bg-light ">
                                 <div class="card-header">
                                     <div class="row">
@@ -72,7 +78,7 @@
                                                                 <h1 class="modal-title fs-5 mx-auto" id="exampleModalLabel">{{ Str::upper($estudiante->nomAlumno)}}</h1>
                                                                 <button type="button" class="btn-close sombra" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                 </div>
-                                                                <div class="modal-body">
+                                                                <div class="modal-body sombra">
                                                                     <div class="row">
                                                                         <div class="col-md-5">Nivel:</div><div class="col-md-7">{{ $estudiante->nivel}}</div>
                                                                         <div class="col-md-5">Fecha matricula:</div><div class="col-md-7">{{ $estudiante->fechaMatricula}}</div>
