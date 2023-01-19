@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\IngresosController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IngresosController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,13 +27,8 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    Route::get('/Incomes', function () {
-        return view('garden.Incomes');
-    })->name('Incomes');
-    Route::get('/Students', function () {
-        return view('garden.Students');
-    })->name('Students');
-
-    Route::post('/prueba', [IngresosController::class, 'index'])->name('prueba');
+    Route::get('/Incomes', [AdminController::class, 'index'])->name('Incomes');
+    Route::get('/Students', [AdminController::class, 'show'])->name('Students');
+    Route::post('/guardar', [IngresosController::class, 'create'])->name('guardar');
 });
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Estudent;
 use Illuminate\Http\Request;
 
 class IngresosController extends Controller
@@ -11,12 +12,9 @@ class IngresosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $name = $request->name;
-        $numero = $request->numero;
-        echo $name;
-        echo $numero;
+        //
     }
 
     /**
@@ -24,9 +22,44 @@ class IngresosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $Estudent = new Estudent();
+
+        $Estudent->nivel = $request->nivel;
+        $Estudent->fechaMatricula = $request->fechaMatricula;
+        $Estudent->nomAlumno = $request->nomAlumno;
+        $Estudent->EdadAlumno = $request->EdadAlumno;
+        $Estudent->genero = $request->genero;
+        $Estudent->EPS = $request->EPS;
+        $Estudent->fechaNacimiento = $request->fechaNacimiento;
+        $Estudent->documentType = $request->documentType;
+        $Estudent->numDocumento = $request->numDocumento;
+        $Estudent->Esalud = $request->Esalud;
+        $Estudent->numTelefonico = $request->numTelefonico;
+        $Estudent->direccionAlumno = $request->direccionAlumno;
+        $Estudent->barrio = $request->barrio;
+        $Estudent->localidad = $request->localidad;
+        $Estudent->nombreMama = $request->nombreMama;
+        $Estudent->documentoMama = $request->documentoMama;
+        $Estudent->telefonoMama = $request->telefonoMama;
+        $Estudent->direccionMama = $request->direccionMama;
+        $Estudent->nombrePapa = $request->nombrePapa;
+        $Estudent->documentoPapa = $request->documentoPapa;
+        $Estudent->telefonoPapa = $request->telefonoPapa;
+        $Estudent->direccionPapa = $request->direccionPapa;
+        $Estudent->nomPriRes = $request->nomPriRes;
+        $Estudent->docPriRes = $request->docPriRes;
+        $Estudent->dirPriRes = $request->dirPriRes;
+        $Estudent->telPriRes = $request->telPriRes;
+        $Estudent->nomSegRes = $request->nomSegRes;
+        $Estudent->docSegRes = $request->docSegRes;
+        $Estudent->dirSegRes = $request->dirSegRes;
+        $Estudent->telSegRes = $request->telSegRes;
+
+        $Estudent->save();
+        $mensaje="Registro almacenado";
+        return view('garden.Students',compact('mensaje'));
     }
 
     /**
@@ -37,7 +70,7 @@ class IngresosController extends Controller
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**
