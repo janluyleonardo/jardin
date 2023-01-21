@@ -27,8 +27,6 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    Route::get('/Incomes', [AdminController::class, 'index'])->name('Incomes');
-    Route::get('/Students', [AdminController::class, 'show'])->name('Students');
-    Route::post('/guardar', [StudentsController::class, 'create'])->name('guardar');
+    Route::resource('/students', StudentsController::class);
 });
 

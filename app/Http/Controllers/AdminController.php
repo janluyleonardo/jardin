@@ -15,8 +15,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $hoy = now()->format('Y-m-d');
-        return view('garden.incomes', compact('hoy'));
+        // $hoy = now()->format('Y-m-d');
+        // return view('garden.incomes', compact('hoy'));
     }
 
     /**
@@ -48,15 +48,16 @@ class AdminController extends Controller
      */
     public function show(Request $request)
     {
+        TODO://verificar esta funcionalidad en el controlador de estudiantes ya que toda la funcionalidad se migro alli
         $student = trim($request->get('texto'));
-        $estudiantes = DB::table('estudents')
+        $students = DB::table('students')
         // ->select('name','email','program','updated_at') //co esta linea se traen columnas especificas de la tabla
         ->where('nomAlumno','LIKE','%'.$student.'%')
         ->orWhere('numDocumento','LIKE','%'.$student.'%')
         ->orderByDesc('id')
         ->paginate(10);
         $mensaje ="";
-        return view('garden.Students',compact('estudiantes','mensaje','student'));
+        return view('students.index',compact('students','mensaje','student'));
     }
 
     /**

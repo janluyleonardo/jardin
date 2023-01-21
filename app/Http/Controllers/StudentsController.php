@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Estudent;
+use App\Http\Requests\StoreStudent;
+use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class StudentsController extends Controller
 {
@@ -15,7 +17,9 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        //
+        $mensaje = "";
+        $students = Student::orderBy('id', 'desc')->paginate(10);
+        return view('students.index', compact('students','mensaje'));
     }
 
     /**
@@ -23,48 +27,11 @@ class StudentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        $student=$request->nomAlumno;
-
-        $Estudent = new Estudent();
-
-        $Estudent->nivel = $request->nivel;
-        $Estudent->fechaMatricula = $request->fechaMatricula;
-        $Estudent->nomAlumno = $request->nomAlumno;
-        $Estudent->EdadAlumno = $request->EdadAlumno;
-        $Estudent->genero = $request->genero;
-        $Estudent->EPS = $request->EPS;
-        $Estudent->fechaNacimiento = $request->fechaNacimiento;
-        $Estudent->documentType = $request->documentType;
-        $Estudent->numDocumento = $request->numDocumento;
-        $Estudent->Esalud = $request->Esalud;
-        $Estudent->numTelefonico = $request->numTelefonico;
-        $Estudent->direccionAlumno = $request->direccionAlumno;
-        $Estudent->barrio = $request->barrio;
-        $Estudent->localidad = $request->localidad;
-        $Estudent->nombreMama = $request->nombreMama;
-        $Estudent->documentoMama = $request->documentoMama;
-        $Estudent->telefonoMama = $request->telefonoMama;
-        $Estudent->direccionMama = $request->direccionMama;
-        $Estudent->nombrePapa = $request->nombrePapa;
-        $Estudent->documentoPapa = $request->documentoPapa;
-        $Estudent->telefonoPapa = $request->telefonoPapa;
-        $Estudent->direccionPapa = $request->direccionPapa;
-        $Estudent->nomPriRes = $request->nomPriRes;
-        $Estudent->docPriRes = $request->docPriRes;
-        $Estudent->dirPriRes = $request->dirPriRes;
-        $Estudent->telPriRes = $request->telPriRes;
-        $Estudent->nomSegRes = $request->nomSegRes;
-        $Estudent->docSegRes = $request->docSegRes;
-        $Estudent->dirSegRes = $request->dirSegRes;
-        $Estudent->telSegRes = $request->telSegRes;
-
-        $Estudent->save();
-        $mensaje="Registro almacenado";
-        $estudiantes = DB::table('estudents')->orderByDesc('id')->paginate(10);
-
-        return view('garden.Students',compact('mensaje','student','estudiantes'));
+        // return view('students.create',compact('mensaje','students'));
+        $hoy = now()->format('Y-m-d');
+        return view('students.create', compact('hoy'));
     }
 
     /**
@@ -73,9 +40,24 @@ class StudentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreStudent $request )
     {
-        //
+        $request->merge([
+            'nomAlumno' =>($request->nomAlumno),
+        ]);
+        $student = Student::create($request->all());
+        return redirect()->route('students.show', $student);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function addStudent(Request $request)
+    {
+        return "store";
     }
 
     /**
@@ -84,9 +66,10 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, Student $student)
     {
-        //
+        $mensaje ="Registro actualizado correctamente";
+        return view('students.show', compact('student','mensaje'));
     }
 
     /**
@@ -95,9 +78,11 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Student $student)
     {
-        //
+        $hoy = now()->format('Y-m-d');
+        $id = $student->id;
+        return view('students.edit', compact('student','hoy'));
     }
 
     /**
@@ -107,9 +92,10 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Student $student)
     {
-        //
+        $student->update($request->all());
+        return redirect()->route('students.show', $student);
     }
 
     /**
@@ -120,6 +106,7 @@ class StudentsController extends Controller
      */
     public function destroy($id)
     {
+        TODO://pendiente implementar la funcion de eliminar un registro
         //
     }
 }

@@ -15,12 +15,12 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('Incomes') }}" :active="request()->routeIs('Incomes')">
-                        {{ __('Incomes') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('Students') }}" :active="request()->routeIs('Students')">
+                    <x-jet-nav-link href="{{ route('students.index') }}" :active="request()->routeIs('students.*')">
                         {{ __('Students') }}
                     </x-jet-nav-link>
+                    {{-- <x-jet-nav-link href="{{ route('Incomes') }}" :active="request()->routeIs('Incomes')">
+                        {{ __('Incomes') }}
+                    </x-jet-nav-link> --}}
                 </div>
             </div>
 
@@ -146,12 +146,12 @@
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="{{ route('Incomes') }}" :active="request()->routeIs('Incomes')">
-                {{ __('Incomes') }}
-            </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="{{ route('Students') }}" :active="request()->routeIs('Students')">
+            <x-jet-responsive-nav-link href="{{ route('students.index') }}" :active="request()->routeIs('students.index')">
                 {{ __('Students') }}
             </x-jet-responsive-nav-link>
+            {{-- <x-jet-responsive-nav-link href="{{ route('Incomes') }}" :active="request()->routeIs('Incomes')">
+                {{ __('Incomes') }}
+            </x-jet-responsive-nav-link> --}}
         </div>
 
         <!-- Responsive Settings Options -->

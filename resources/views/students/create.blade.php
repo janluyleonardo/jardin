@@ -6,16 +6,15 @@
     </x-slot>
     <div class="container">
         <div class="row py-0">
-            <div class="col-md-6 mx-auto py-4">
-                <div class="card">
+            <div class="col-md-6 mx-auto py-1">
+                <div class="card shadow">
                     <div class="form-body">
                         <div class="row">
                             <div class="form-holder">
                                 <div class="form-content">
                                     <div class="form-items">
-                                        <form action="{{ route('guardar') }}" method="post"class="requires-validation" novalidate>
+                                        <form action="{{ route('students.store') }}" method="post"class="requires-validation" novalidate>
                                             @csrf
-                                            <div class="col-md-12"><h3>{{ __('Registration') }}</h3></div>
                                             <div class="input-group">
                                                 <div class="col-md-8 pt-4">
                                                     <input type="radio" class="btn-check" name="nivel" id="SALA-CUNA" value="SALA-CUNA" autocomplete="off" required>
@@ -38,11 +37,17 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-12" style="background-color: rgba(0, 0, 0, 0.068); border-bottom: 1px solid rgba(0, 0, 0, 0.5)">
-                                                {{ __('Informacion del(a) niño(a)') }}</div>
+                                                {{ __('Informacion del(a) niño(a)') }}
+                                            </div>
                                             <div class="col-md-12">
                                                 <input class="form-control" type="text" name="nomAlumno" placeholder="{{ __('Full Name') }}" required>
                                                 <div class="valid-feedback">Username field is valid!</div>
                                                 <div class="invalid-feedback">Username field cannot be blank!</div>
+                                                @error('nomAlumno')
+                                                    <br>
+                                                    <small>*{{ $message }}</small>
+                                                    <br>
+                                                @enderror
                                             </div>
 
                                             <div class="input-group">
@@ -54,13 +59,12 @@
                                                 </div>
                                                 <div class="col-md-4 my-auto mt-3">
                                                     <center>
-                                                        <label for="masc"><i><img src="{{asset('images/icono-niño.png')}}" alt="icono-niño" width="35px"></i></label>
-                                                        <input type="radio" name="genero" id="masc" value="Maculino" required>
-                                                        <label for="fem"><i><img src="{{asset('images/icono-niña.png')}}" alt="icono-niña" width="35px"></i></label>
-                                                        <input type="radio" name="genero" id="fem" value="Femenino">
+                                                        <input type="radio" class="btn-check"  name="genero" id="masc" value="Masculino" required>
+                                                        <label class="btn btn-sm btn-outline-secondary" for="masc"><i><img src="{{asset('images/icono-niño.png')}}" alt="icono-niño" width="45px"></i></label>
+                                                        <input type="radio" class="btn-check" name="genero" id="fem" value="Femenino" required>
+                                                        <label class="btn btn-sm btn-outline-secondary" for="fem"><i><img src="{{asset('images/icono-niña.png')}}" alt="icono-niña" width="45px"></i></label>
                                                         <div class="valid-feedback">Gender field is valid!</div>
                                                         <div class="invalid-feedback">Gender field cannot be blank!</div>
-                                                        <br>genero:
                                                     </center>
                                                 </div>
                                                 <div class="col-md-4">
@@ -78,13 +82,12 @@
                                                 </div>
                                                 <div class="col-md-4 my-auto mt-4">
                                                     <center>
-                                                        <label for="documentType">NUIP</label>
-                                                        <input type="radio" name="documentType" id="documentType" value="NUIP" required>
-                                                        <label for="documentType">RC</label>
-                                                        <input type="radio" name="documentType" id="documentType" value="RC">
+                                                        <input type="radio" class="btn-check" name="documentType" id="docTypeNuip" value="NUIP" required>
+                                                        <label class="btn btn-sm btn-outline-secondary" for="docTypeNuip">NUIP</label>
+                                                        <input type="radio" class="btn-check" name="documentType" id="docTypeRc" value="RC">
+                                                        <label class="btn btn-sm btn-outline-secondary" for="docTypeRc">RC</label>
                                                         <div class="valid-feedback">Tipo documento field is valid!</div>
-                                                        <div class="invalid-feedback">Tipo documento field cannot be blank!
-                                                        </div><br>
+                                                        <div class="invalid-feedback">Tipo documento field cannot be blank!</div><br>
                                                         Tipo documento
                                                     </center>
                                                 </div>
@@ -136,8 +139,7 @@
                                                     <div class="invalid-feedback">Localidad field cannot be blank!</div>
                                                 </div>
                                             </div>
-                                            <br>
-                                            <div class="col-md-12" style="background-color: rgba(0, 0, 0, 0.068); border-bottom: 1px solid rgba(0, 0, 0, 0.5)"> {{ __('Informacion de la Madre') }}</div>
+                                            <div class="col-md-12 mt-1" style="background-color: rgba(0, 0, 0, 0.068); border-bottom: 1px solid rgba(0, 0, 0, 0.5)"> {{ __('Informacion de la Madre') }}</div>
                                             <div class="input-group">
                                                 <div class="col-md-6">
                                                     <input class="form-control" type="text" name="nombreMama" placeholder="Nombre completo" required>
@@ -227,7 +229,7 @@
                                             </div>
                                             <div class="col-md-4 mx-auto">
                                                 <div class="form-button mt-3 ">
-                                                    <button id="submit" type="submit" class="btn btn-secondary">Register alumno</button>
+                                                    <button id="submit" type="submit" class="sombra btn btn-secondary">{{__('Add student')}}</button>
                                                 </div>
                                             </div>
                                         </form>
