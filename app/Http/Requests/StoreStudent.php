@@ -13,7 +13,7 @@ class StoreStudent extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true ;
     }
 
     /**
@@ -40,7 +40,7 @@ class StoreStudent extends FormRequest
     public function messages()
     {
         return [
-            'descripcion' => 'Debe ingresar una descripción para el curso'
+            'nomAlumno' => 'Debe ingresar un nombre de alumno'
         ];
     }
 }
