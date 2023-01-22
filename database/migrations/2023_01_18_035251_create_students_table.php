@@ -18,7 +18,7 @@ class CreateStudentsTable extends Migration
             $table->string('nivel');
             $table->date('fechaMatricula');
             $table->string('nomAlumno');
-            $table->bigInteger('EdadAlumno');
+            $table->string('EdadAlumno');
             $table->string('genero');
             $table->string('EPS');
             $table->date('fechaNacimiento');
