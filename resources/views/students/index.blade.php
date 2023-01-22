@@ -34,7 +34,7 @@
                                                 <thead>
                                                     <tr>
                                                         <th colspan="6" align="center">
-                                                            <center>El estudiante "{{ $texto }}" que esta buscano no existe en la base de datos</center>
+                                                            <center>El estudiante que esta buscano no existe en la base de datos</center>
                                                         </th>
                                                     </tr>
                                                 </thead>
