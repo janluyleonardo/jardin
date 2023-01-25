@@ -195,5 +195,7 @@
     "edit student": "Editar alumno",
     "Students list": "Lista de alumnos",
     "Student data": "Datos del estudiante",
-    "Records in database": "Registros en la base de datos"
+    "Records in database": "Registros en la base de datos",
+    "Directories": "Directorio",
+    "Students Directory": "Directorio de alumnos"
 }

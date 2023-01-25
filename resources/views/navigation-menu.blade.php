@@ -18,9 +18,9 @@
                     <x-jet-nav-link href="{{ route('students.index') }}" :active="request()->routeIs('students.*')">
                         {{ __('Students') }}
                     </x-jet-nav-link>
-                    {{-- <x-jet-nav-link href="{{ route('Incomes') }}" :active="request()->routeIs('Incomes')">
-                        {{ __('Incomes') }}
-                    </x-jet-nav-link> --}}
+                    <x-jet-nav-link href="{{ route('directories.index') }}" :active="request()->routeIs('directories.*')">
+                        {{ __('Directories') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
@@ -149,9 +149,9 @@
             <x-jet-responsive-nav-link href="{{ route('students.index') }}" :active="request()->routeIs('students.index')">
                 {{ __('Students') }}
             </x-jet-responsive-nav-link>
-            {{-- <x-jet-responsive-nav-link href="{{ route('Incomes') }}" :active="request()->routeIs('Incomes')">
-                {{ __('Incomes') }}
-            </x-jet-responsive-nav-link> --}}
+            <x-jet-responsive-nav-link href="{{ route('directories.index') }}" :active="request()->routeIs('directories.*')">
+                {{ __('Directories') }}
+            </x-jet-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->

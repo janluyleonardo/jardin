@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentsController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DirectoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,5 +28,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
     Route::resource('/students', StudentsController::class);
+    Route::resource('/directories', DirectoriesController::class);
 });
 
