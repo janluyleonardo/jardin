@@ -30,8 +30,8 @@ class StudentsController extends Controller
     public function create()
     {
         // return view('students.create',compact('mensaje','students'));
-        $hoy = now()->format('Y-m-d');
-        return view('students.create', compact('hoy'));
+        // $hoy = now()->format('Y-m-d');
+        return view('students.create');
     }
 
     /**

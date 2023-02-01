@@ -18,14 +18,16 @@ class CreateStudentsTable extends Migration
             $table->string('nivel');
             $table->date('fechaMatricula');
             $table->string('nomAlumno');
-            $table->string('EdadAlumno');
-            $table->string('genero');
-            $table->string('EPS');
             $table->date('fechaNacimiento');
+            $table->string('genero');
+            $table->string('EdadAlumno');
             $table->string('documentType');
             $table->bigInteger('numDocumento')->unique();
             $table->string('Esalud');
+            $table->string('EPS');
             $table->bigInteger('numTelefonico');
+            $table->bigInteger('numTelefonicoUno')->nullable();
+            $table->bigInteger('numTelefonicoDos')->nullable();
             $table->string('direccionAlumno');
             $table->string('barrio');
             $table->string('localidad');
@@ -33,10 +35,12 @@ class CreateStudentsTable extends Migration
             $table->bigInteger('documentoMama');
             $table->bigInteger('telefonoMama');
             $table->string('direccionMama');
+            $table->string('correoMama')->nullable();
             $table->string('nombrePapa');
             $table->bigInteger('documentoPapa');
             $table->bigInteger('telefonoPapa');
             $table->string('direccionPapa');
+            $table->string('correoPapa')->nullable();
             $table->string('nomPriRes');
             $table->bigInteger('docPriRes');
             $table->string('dirPriRes');
@@ -45,6 +49,10 @@ class CreateStudentsTable extends Migration
             $table->bigInteger('docSegRes');
             $table->string('dirSegRes');
             $table->bigInteger('telSegRes');
+            $table->string('nomTerRes')->nullable();
+            $table->bigInteger('docTerRes')->nullable();
+            $table->string('dirTerRes')->nullable();
+            $table->bigInteger('telTerRes')->nullable();
             $table->timestamps();
         });
     }

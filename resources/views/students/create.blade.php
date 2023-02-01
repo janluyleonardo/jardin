@@ -16,7 +16,7 @@
                                         <form action="{{ route('students.store') }}" method="post"class="requires-validation" novalidate>
                                             @csrf
                                             <div class="input-group">
-                                                <div class="col-md-8 pt-4">
+                                                {{-- <div class="col-md-8">
                                                     <input type="radio" class="btn-check" name="nivel" id="SALA-CUNA" value="SALA-CUNA" autocomplete="off" required>
                                                     <label class="btn btn-sm btn-outline-secondary" for="SALA-CUNA">SALA-CUNA</label>
                                                     <input type="radio" class="btn-check" name="nivel" id="PARVULOS" value="PARVULOS" autocomplete="off" required>
@@ -28,9 +28,33 @@
                                                     <div class="valid-feedback mv-up">You selected a nivel!</div>
                                                     <div class="invalid-feedback mv-up">Please select a nivel!</div>
                                                     Nivel de matricula
+                                                </div> --}}
+                                                <div class="col-md-7">
+                                                    <select class="form-control" name="nivel" id="nivel" required>
+                                                        <option value="">Seleccionar un nivel de matricula</option>
+                                                        <option value="salaMaterna">Sala materna</option>
+                                                        <option value="caminadoresUno">Caminadores 1</option>
+                                                        <option value="caminadoresDoc">Caminadores 2</option>
+                                                        <option value="parvulosUno">Parvulos 1</option>
+                                                        <option value="parvulosDos">Parvulos 2</option>
+                                                        <option value="parvulosTres">Parvulos 3</option>
+                                                        <option value="parvulosCuatro">Parvulos 4</option>
+                                                        <option value="preJardinUno">Pre-jardin 1</option>
+                                                        <option value="preJardinDos">Pre-jardin 2</option>
+                                                        <option value="preJardinTres">Pre-jardin 3</option>
+                                                        <option value="preJardinCuatro">Pre-jardin 4</option>
+                                                        <option value="jardinUno">Jardin 1</option>
+                                                        <option value="jardinDos">Jardin 2</option>
+                                                        <option value="jardinTres">Jardin 3</option>
+                                                        <option value="jardinCuatro">Jardin 4</option>
+                                                    </select>
+                                                    <div class="valid-feedback mv-up">You selected a nivel!</div>
+                                                    <div class="invalid-feedback mv-up">Please select a nivel!</div>
+                                                    Nivel de matricula
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <input class="form-control" type="text" name="fechaMatricula" id="" value="{{ $hoy }}" readonly required>
+                                                <div class="col-md-1 "></div>
+                                                <div class="col-md-4 pt-3">
+                                                    <input class="form-control" type="date" name="fechaMatricula" required>
                                                     <div class="valid-feedback mv-up">You selected a fecha de matricula!</div>
                                                     <div class="invalid-feedback mv-up">Please select a fecha de matricula!</div>
                                                     Fecha de{{ __('Registration') }}
@@ -49,7 +73,6 @@
                                                     <br>
                                                 @enderror
                                             </div>
-
                                             <div class="input-group">
                                                 <div class="col-md-4 my-auto mt-3">
                                                     <input class="form-control" type="date" name="fechaNacimiento" id="fechaNacimiento" onblur="edad()" required>
@@ -67,30 +90,31 @@
                                                         <div class="invalid-feedback">Gender field cannot be blank!</div>
                                                     </center>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <input class="form-control" type="text" name="EPS" placeholder="EPS" required>
-                                                    <div class="valid-feedback">EPS field is valid!</div>
-                                                    <div class="invalid-feedback">EPS field cannot be blank!</div>
-                                                </div>
-                                            </div>
-
-                                            <div class="input-group">
                                                 <div class="col-md-4 my-auto ">
                                                     <input class="form-control" type="text" name="EdadAlumno" id="EdadAlumno" placeholder="Edad" readonly required>
                                                     <div class="valid-feedback">Edad field is valid!</div>
                                                     <div class="invalid-feedback">Edad field cannot be blank!</div>
                                                 </div>
+                                            </div>
+
+                                            <div class="input-group">
+
                                                 <div class="col-md-4 my-auto mt-4">
                                                     <center>
-                                                        <input type="radio" class="btn-check" name="documentType" id="docTypeNuip" value="NUIP" required>
-                                                        <label class="btn btn-sm btn-outline-secondary" for="docTypeNuip">NUIP</label>
                                                         <input type="radio" class="btn-check" name="documentType" id="docTypeRc" value="RC">
                                                         <label class="btn btn-sm btn-outline-secondary" for="docTypeRc">RC</label>
+                                                        <input type="radio" class="btn-check" name="documentType" id="docTypeIdex" value="IDEX" required>
+                                                        <label class="btn btn-sm btn-outline-secondary" for="docTypeIdex">IDEX</label>
+                                                        <input type="radio" class="btn-check" name="documentType" id="docTypeCd" value="CD" required>
+                                                        <label class="btn btn-sm btn-outline-secondary" for="docTypeCd">CD</label>
+                                                        <input type="radio" class="btn-check" name="documentType" id="docTypePep" value="PEP" required>
+                                                        <label class="btn btn-sm btn-outline-secondary" for="docTypePep">PEP</label>
                                                         <div class="valid-feedback">Tipo documento field is valid!</div>
                                                         <div class="invalid-feedback">Tipo documento field cannot be blank!</div><br>
                                                         Tipo documento
                                                     </center>
                                                 </div>
+                                                <div class="col-md-1"></div>
                                                 <div class="col-md-4 my-auto mt-4">
                                                     <input class="form-control" type="number" name="numDocumento"placeholder="N° documento" required>
                                                     <div class="valid-feedback">Numero de documento field is valid!
@@ -100,27 +124,46 @@
                                             </div>
 
                                             <div class="input-group">
-                                                <div class="col-md-8 mt-1 pt-3">
+                                                <div class="col-md-6 mt-1 pt-3 mx-auto">
                                                     Reg de salud:
-                                                    <input type="radio" class="btn-check" name="Esalud" id="EPS" value="EPS" autocomplete="off" required>
-                                                    <label class="btn btn-sm btn-outline-secondary" for="EPS">EPS</label>
+                                                    <input type="radio" class="btn-check" name="Esalud" id="RC" value="RC" autocomplete="off" required>
+                                                    <label class="btn btn-sm btn-outline-secondary" for="RC">RC</label>
 
-                                                    <input type="radio" class="btn-check" name="Esalud" id="ARS" value="ARS" autocomplete="off" required>
-                                                    <label class="btn btn-sm btn-outline-secondary" for="ARS">ARS</label>
+                                                    <input type="radio" class="btn-check" name="Esalud" id="RS" value="RS" autocomplete="off" required>
+                                                    <label class="btn btn-sm btn-outline-secondary" for="RS">RS</label>
 
-                                                    <input type="radio" class="btn-check" name="Esalud" id="VINCULADO" value="VINCULADO" autocomplete="off" required>
-                                                    <label class="btn btn-sm btn-outline-secondary" for="VINCULADO">VINCULADO</label>
+                                                    <input type="radio" class="btn-check" name="Esalud" id="ESP" value="ESP" autocomplete="off" required>
+                                                    <label class="btn btn-sm btn-outline-secondary" for="ESP">ESP</label>
 
                                                     <div class="valid-feedback mv-up">You selected a regimen de salud de salud!</div>
                                                     <div class="invalid-feedback mv-up">Please select a regimen de salud de salud!</div>
                                                 </div>
-                                                <div class="col-md-4 mt-3">
-                                                    <input class="form-control" type="number" name="numTelefonico"placeholder="N° telefono" required>
+                                                <div class="col-md-6  mx-auto">
+                                                    <input class="form-control" type="text" name="EPS" placeholder="EPS" required>
+                                                    <div class="valid-feedback">EPS field is valid!</div>
+                                                    <div class="invalid-feedback">EPS field cannot be blank!</div>
+                                                </div>
+
+                                            </div>
+                                            <div class="input-group">
+                                                <div class="col-md-3 mt-2">
+                                                    <input class="form-control mr-1" type="number" name="numTelefonico"placeholder="N° telefono" required>
+                                                    <div class="valid-feedback">Telefono field is valid!</div>
+                                                    <div class="invalid-feedback">Telefono field cannot be blank!</div>
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-3 mt-2 mr-1">
+                                                    <input class="form-control" type="number" name="numTelefonicoUno"placeholder="N° telefono">
+                                                    <div class="valid-feedback">Telefono field is valid!</div>
+                                                    <div class="invalid-feedback">Telefono field cannot be blank!</div>
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-3 mt-2 ">
+                                                    <input class="form-control" type="number" name="numTelefonicoDoc"placeholder="N° telefono">
                                                     <div class="valid-feedback">Telefono field is valid!</div>
                                                     <div class="invalid-feedback">Telefono field cannot be blank!</div>
                                                 </div>
                                             </div>
-
                                             <div class="input-group">
                                                 <div class="col-md-12 ">
                                                     <input class="form-control" type="text" name="direccionAlumno"placeholder="Direccion" required>
@@ -163,6 +206,11 @@
                                                     <div class="valid-feedback">Direccion field is valid!</div>
                                                     <div class="invalid-feedback">Direccion field cannot be blank!</div>
                                                 </div>
+                                                <div class="col-md-12">
+                                                    <input class="form-control" type="email" name="correoMama"placeholder="Correo electronico" required>
+                                                    <div class="valid-feedback">Correo field is valid!</div>
+                                                    <div class="invalid-feedback">Correo field cannot be blank!</div>
+                                                </div>
                                             </div>
                                             <br>
                                             <div class="col-md-12" style="background-color: rgba(0, 0, 0, 0.068); border-bottom: 1px solid rgba(0, 0, 0, 0.5)"> {{ __('Informacion del Padre') }}</div>
@@ -189,42 +237,84 @@
                                                     <div class="valid-feedback">Direccion field is valid!</div>
                                                     <div class="invalid-feedback">Direccion field cannot be blank! </div>
                                                 </div>
+                                                <div class="col-md-12">
+                                                    <input class="form-control" type="email" name="correoPapa"placeholder="Correo electronico" required>
+                                                    <div class="valid-feedback">Correo field is valid!</div>
+                                                    <div class="invalid-feedback">Correo field cannot be blank!</div>
+                                                </div>
                                             </div>
                                             <br>
-                                            <div class="col-md-12" style="background-color: rgba(0, 0, 0, 0.068); border-bottom: 1px solid rgba(0, 0, 0, 0.5)"> {{ __('Informacion de los responsables') }}</div>
                                             <div class="input-group">
-                                                <div class="col-md-5">
-                                                    <br>
-                                                    <div class="col-md-12" style="background-color: rgba(0, 0, 0, 0.068); border-bottom: 1px solid rgba(0, 0, 0, 0.5)"> {{ __('Primer responsable') }}</div>
+                                                <div class="col-md-12" style="background-color: rgba(0, 0, 0, 0.068); border-bottom: 1px solid rgba(0, 0, 0, 0.5)"> {{ __('Primer responsable') }}</div>
+                                                <div class="col-md-8">
                                                     <input class="form-control" type="text" name="nomPriRes"placeholder="Apellido(s) y nombre(s)" required>
                                                     <div class="valid-feedback">Nombre 1er responsable field is valid!</div>
                                                     <div class="invalid-feedback">Nombre 1er responsable field cannot be blank!</div>
-                                                    <input class="form-control my-auto mt-3" type="number" name="docPriRes"placeholder="N° documento" required>
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-3">
+                                                    <input class="form-control my-auto mt-3" type="number" name="docPriRes"placeholder="Documento" required>
                                                     <div class="valid-feedback">Documento 1er responsable field is valid!</div>
                                                     <div class="invalid-feedback">Documento 1er responsable field cannot be blank!</div>
-                                                    <input class="form-control" type="text" name="dirPriRes"placeholder="Direccion" required>
-                                                    <div class="valid-feedback">Direccion 1er responsable field is valid!</div>
-                                                    <div class="invalid-feedback">Direccion 1er responsable field cannot be blank!</div>
+                                                </div>
+                                                <div class="col-md-3">
                                                     <input class="form-control my-auto mt-3" type="number" name="telPriRes" placeholder="N° telefono" required>
                                                     <div class="valid-feedback">Telefono 1er responsable field is valid!</div>
                                                     <div class="invalid-feedback">Telefono 1er responsable field cannot be blank!</div>
                                                 </div>
-                                                <div class="col-md-2"></div>
-                                                <div class="col-md-5">
-                                                    <br>
-                                                    <div class="col-md-12" style="background-color: rgba(0, 0, 0, 0.068); border-bottom: 1px solid rgba(0, 0, 0, 0.5)"> {{ __('Segundo responsable') }}</div>
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-8">
+                                                    <input class="form-control" type="text" name="dirPriRes"placeholder="Direccion" required>
+                                                    <div class="valid-feedback">Direccion 1er responsable field is valid!</div>
+                                                    <div class="invalid-feedback">Direccion 1er responsable field cannot be blank!</div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="input-group">
+                                                <div class="col-md-12" style="background-color: rgba(0, 0, 0, 0.068); border-bottom: 1px solid rgba(0, 0, 0, 0.5)"> {{ __('Segundo responsable') }}</div>
+                                                <div class="col-md-8">
                                                     <input class="form-control" type="text" name="nomSegRes"placeholder="Apellido(s) y nombre(s)" required>
                                                     <div class="valid-feedback">Nombre 2do responsable is valid!</div>
                                                     <div class="invalid-feedback">Nombre 2do responsable cannot be blank!</div>
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-3">
                                                     <input class="form-control my-auto mt-3" type="number" name="docSegRes"placeholder="N° documento" required>
                                                     <div class="valid-feedback">Documento 2do responsable field is valid!</div>
                                                     <div class="invalid-feedback">Documento 2do responsable field cannot be blank!</div>
-                                                    <input class="form-control" type="text" name="dirSegRes"placeholder="Direccion" required>
-                                                    <div class="valid-feedback">Direccion 2do responsable field is valid!</div>
-                                                    <div class="invalid-feedback">Direccion 2do responsable field cannot be blank!</div>
+                                                </div>
+                                                <div class="col-md-3">
                                                     <input class="form-control my-auto mt-3" type="number" name="telSegRes"placeholder="N° telefono" required>
                                                     <div class="valid-feedback">Telefono 2do responsable field is valid!</div>
                                                     <div class="invalid-feedback">Telefono 2do responsable field cannot be blank!</div>
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-8">
+                                                    <input class="form-control" type="text" name="dirSegRes"placeholder="Direccion" required>
+                                                    <div class="valid-feedback">Direccion 2do responsable field is valid!</div>
+                                                    <div class="invalid-feedback">Direccion 2do responsable field cannot be blank!</div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="input-group">
+                                                <div class="col-md-12" style="background-color: rgba(0, 0, 0, 0.068); border-bottom: 1px solid rgba(0, 0, 0, 0.5)"> {{ __('Tercer responsable') }}</div>
+                                                <div class="col-md-8">
+                                                    <input class="form-control" type="text" name="nomTerRes"placeholder="Apellido(s) y nombre(s)">
+                                                    <div class="valid-feedback">Nombre 3er responsable is valid!</div>
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-3">
+                                                    <input class="form-control my-auto mt-3" type="number" name="docTerRes"placeholder="N° documento">
+                                                    <div class="valid-feedback">Documento 3er responsable field is valid!</div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input class="form-control my-auto mt-3" type="number" name="telTerRes"placeholder="N° telefono">
+                                                    <div class="valid-feedback">Telefono 3er responsable field is valid!</div>
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-8">
+                                                    <input class="form-control" type="text" name="dirTerRes"placeholder="Direccion">
+                                                    <div class="valid-feedback">Direccion 3er responsable field is valid!</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4 mx-auto">
@@ -292,7 +382,7 @@
                 ultimoDiaMes = new Date(ahora_ano, ahora_mes - 1, 0);
                 dias = ultimoDiaMes.getDate() - (dia - ahora_dia);
             }
-            var edadFinal = edad + " años, " + meses + " meses y " + dias + " días"
+            var edadFinal = edad + " años, " + meses + " meses " + dias + " días"
             document.getElementById("EdadAlumno").value = edadFinal;
         }
     </script>
