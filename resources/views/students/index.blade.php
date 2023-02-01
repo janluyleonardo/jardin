@@ -23,7 +23,7 @@
                                     <div class="row">
                                         <div class="col-md-6">{{__('Records in database')}}</div>
                                         <div class="col-md-6 flex-row-reverse">
-                                            <a title="Regresar" href="{{ route('students.create') }}" class="sombra btn btn-secondary"><i class="bi bi-person-fill-add"> Agregar alumno</i></a>
+                                            <a title="Regresar" href="{{ route('students.create') }}" class="sombra btn btn-secondary"> Agregar alumno</a>
                                         </div>
                                     </div>
                                 </div>
@@ -54,9 +54,9 @@
                                                             <td>{{ Str::title($student->nomAlumno) }}</td>
                                                             <td>
                                                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                                                    <a title="Show" href="#showModal{{$student->id}}" class="sombra btn btn-info" data-bs-toggle="modal"><i class="bi bi-eye"></i></a>
-                                                                    <a title="Editar" href="{{ route('students.edit', $student) }}" class="sombra btn btn-warning" ><i class="bi bi-pencil"></i></a>
-                                                                    <a title="Eliminar" href="#deleteModal{{$student->student}}" class="sombra btn btn-danger" data-bs-toggle="modal"><i class="bi bi-trash"></i></a>
+                                                                    <a title="Show" href="#showModal{{$student->id}}" class="sombra btn btn-info" data-bs-toggle="modal">{{__('See')}}</a>
+                                                                    <a title="Editar" href="{{ route('students.edit', $student) }}" class="sombra btn btn-warning" >{{__('Edit')}}</a>
+                                                                    <a title="Eliminar" href="#deleteModal{{$student->student}}" class="sombra btn btn-danger" data-bs-toggle="modal">{{__('Delete')}}</a>
                                                                 </div>
                                                             </td>
                                                         </tr>

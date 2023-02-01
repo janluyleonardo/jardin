@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <!-- favicon -->
-        <link rel="shortcut icon" href="{{ asset('images/icono.png') }}" type="image/x-icon">
+        <link rel="shortcut icon" href="{{ asset('images/jardin-logo.png') }}" type="image/x-icon">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -15,17 +15,17 @@
         <!-- Styles -->
         @livewireStyles
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/formulario.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/input.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/modals.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/directorios.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/app.css?v='.now()->format('H.s')) }}">
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css?v='.now()->format('H.s')) }}">
+        <link rel="stylesheet" href="{{ asset('css/formulario.css?v='.now()->format('H.s')) }}">
+        <link rel="stylesheet" href="{{ asset('css/input.css?v='.now()->format('H.s')) }}">
+        <link rel="stylesheet" href="{{ asset('css/modals.css?v='.now()->format('H.s')) }}">
+        <link rel="stylesheet" href="{{ asset('css/directorios.css?v='.now()->format('H.s')) }}">
         <!-- icons -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
         <!-- Scripts -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous" defer></script>
+        {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> --}}
+        {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous" defer></script> --}}
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
     </head>
     <body class="font-sans antialiased">
@@ -54,6 +54,6 @@
         @livewireScripts
         <script src="{{ asset('js/app.js') }}"></script>
         <script src="{{ asset('js/formulario.js') }}"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.min.js"></script>
+        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.min.js"></script> --}}
     </body>
 </html>

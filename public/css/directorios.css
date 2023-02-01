@@ -1,0 +1,19 @@
+.fondo{
+    background-color:rgb(192,192,192) !important;
+}
+
+.borde-left{
+    border:1px solid #000;
+}
+
+.borde-right{
+    border:1px solid #000;
+}
+
+.borde-top{
+    border-top:1px solid #000;
+}
+
+.borde-bottom{
+    border:1px solid #000;
+}

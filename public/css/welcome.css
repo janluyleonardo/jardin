@@ -24,7 +24,7 @@ html {
 }
 
 .sombra {
-    filter: drop-shadow(3px 3px 10px rgb(0, 247, 255));
+    filter: drop-shadow(3px 3px 10px rgb(0, 0, 0));
 }
 
 *,
