@@ -147,19 +147,19 @@
                                             </div>
                                             <div class="input-group">
                                                 <div class="col-md-3 mt-2">
-                                                    <input class="form-control mr-1" type="number" name="numTelefonico"placeholder="N° telefono" required>
+                                                    <input class="form-control mr-1" type="number" name="numTelefonico" placeholder="N° telefono" required>
                                                     <div class="valid-feedback">Telefono field is valid!</div>
                                                     <div class="invalid-feedback">Telefono field cannot be blank!</div>
                                                 </div>
                                                 <div class="col-md-1"></div>
                                                 <div class="col-md-3 mt-2 mr-1">
-                                                    <input class="form-control" type="number" name="numTelefonicoUno"placeholder="N° telefono">
+                                                    <input class="form-control" type="number" name="numTelefonicoUno" placeholder="N° telefono">
                                                     <div class="valid-feedback">Telefono field is valid!</div>
                                                     <div class="invalid-feedback">Telefono field cannot be blank!</div>
                                                 </div>
                                                 <div class="col-md-1"></div>
                                                 <div class="col-md-3 mt-2 ">
-                                                    <input class="form-control" type="number" name="numTelefonicoDoc"placeholder="N° telefono">
+                                                    <input class="form-control" type="number" name="numTelefonicoDos" placeholder="N° telefono">
                                                     <div class="valid-feedback">Telefono field is valid!</div>
                                                     <div class="invalid-feedback">Telefono field cannot be blank!</div>
                                                 </div>

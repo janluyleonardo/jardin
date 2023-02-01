@@ -1,13 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('edit student') }}
+            {{ __('Manage Incomes') }}
         </h2>
     </x-slot>
     <div class="container">
         <div class="row py-0">
-            <div class="col-md-6 mx-auto py-4">
-                <div class="card">
+            <div class="col-md-6 mx-auto py-1">
+                <div class="card shadow">
                     <div class="form-body">
                         <div class="row">
                             <div class="form-holder">
@@ -17,40 +17,67 @@
                                             @method('put')
                                             @csrf
                                             <div class="input-group">
-                                                <div class="col-md-8 pt-4">
+                                                <div class="col-md-7">
                                                     @php
-                                                        $salaCunaCheck = $student->nivel=="SALA-CUNA" ? 'checked' : '';
-                                                        $parvulosCheck = $student->nivel=="PARVULOS" ? 'checked' : '';
-                                                        $perKinderCheck = $student->nivel=="PRE-KINDER" ? 'checked' : '';
-                                                        $kinderCheck = $student->nivel=="KINDER" ? 'checked' : '';
+                                                        $salaMaternaSelect = $student->nivel=="salaMaterna" ? 'selected' : '';
+                                                        $caminadoresUnoSelect = $student->nivel=="caminadoresUno" ? 'selected' : '';
+                                                        $caminadoresDocSelect = $student->nivel=="caminadoresDoc" ? 'selected' : '';
+                                                        $parvulosUnoSelect = $student->nivel=="parvulosUno"? 'selected' : '';
+                                                        $parvulosDosSelect = $student->nivel=="parvulosDos" ? 'selected' : '';
+                                                        $parvulosTresSelect = $student->nivel=="parvulosTres" ? 'selected' : '';
+                                                        $parvulosCuatroSelect = $student->nivel=="parvulosCuatro" ? 'selected' : '';
+                                                        $preJardinUnoSelect = $student->nivel=="preJardinUno"? 'selected' : '';
+                                                        $preJardinDosSelect = $student->nivel=="preJardinDos" ? 'selected' : '';
+                                                        $preJardinTresSelect = $student->nivel=="preJardinTres" ? 'selected' : '';
+                                                        $preJardinCuatroSelect = $student->nivel=="preJardinCuatro" ? 'selected' : '';
+                                                        $jardinUnoSelect = $student->nivel=="jardinUno"? 'selected' : '';
+                                                        $jardinDosSelect = $student->nivel=="jardinDos" ? 'selected' : '';
+                                                        $jardinTresSelect = $student->nivel=="jardinTres" ? 'selected' : '';
+                                                        $jardinCuatroSelect = $student->nivel=="jardinCuatro" ? 'selected' : '';
                                                     @endphp
-                                                    <input type="radio" class="btn-check" name="nivel" id="SALA-CUNA" value="SALA-CUNA" autocomplete="off" {{$salaCunaCheck}} required>
-                                                    <label class="btn btn-sm btn-outline-secondary" for="SALA-CUNA">SALA-CUNA</label>
-                                                    <input type="radio" class="btn-check" name="nivel" id="PARVULOS" value="PARVULOS" autocomplete="off" {{$parvulosCheck}} required>
-                                                    <label class="btn btn-sm btn-outline-secondary" for="PARVULOS">PARVULOS</label>
-                                                    <input type="radio" class="btn-check" name="nivel" id="PRE-KINDER" value="PRE-KINDER" autocomplete="off" {{$perKinderCheck}} required>
-                                                    <label class="btn btn-sm btn-outline-secondary" for="PRE-KINDER">PRE-KINDER</label>
-                                                    <input type="radio" class="btn-check" name="nivel" id="KINDER" value="KINDER" autocomplete="off" {{$kinderCheck}} required>
-                                                    <label class="btn btn-sm btn-outline-secondary" for="KINDER">KINDER</label>
+                                                    <select class="form-control" name="nivel" id="nivel" required>
+                                                        <option value="">Seleccionar un nivel de matricula</option>
+                                                        <option value="salaMaterna" {{$salaMaternaSelect}}>Sala materna</option>
+                                                        <option value="caminadoresUno" {{$caminadoresUnoSelect}}>Caminadores 1</option>
+                                                        <option value="caminadoresDoc" {{$caminadoresDocSelect}}>Caminadores 2</option>
+                                                        <option value="parvulosUno" {{$parvulosUnoSelect}}>Parvulos 1</option>
+                                                        <option value="parvulosDos" {{$parvulosDosSelect}}>Parvulos 2</option>
+                                                        <option value="parvulosTres" {{$parvulosTresSelect}}>Parvulos 3</option>
+                                                        <option value="parvulosCuatro" {{$parvulosCuatroSelect}}>Parvulos 4</option>
+                                                        <option value="preJardinUno" {{$preJardinUnoSelect}}>Pre-jardin 1</option>
+                                                        <option value="preJardinDos" {{$preJardinDosSelect}}>Pre-jardin 2</option>
+                                                        <option value="preJardinTres" {{$preJardinTresSelect}}>Pre-jardin 3</option>
+                                                        <option value="preJardinCuatro" {{$preJardinCuatroSelect}}>Pre-jardin 4</option>
+                                                        <option value="jardinUno" {{$jardinUnoSelect}}>Jardin 1</option>
+                                                        <option value="jardinDos" {{$jardinDosSelect}}>Jardin 2</option>
+                                                        <option value="jardinTres" {{$jardinTresSelect}}>Jardin 3</option>
+                                                        <option value="jardinCuatro" {{$jardinCuatroSelect}}>Jardin 4</option>
+                                                    </select>
                                                     <div class="valid-feedback mv-up">You selected a nivel!</div>
                                                     <div class="invalid-feedback mv-up">Please select a nivel!</div>
                                                     Nivel de matricula
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <input class="form-control" type="text" name="fechaMatricula" id="" value="{{ old('fechaMatricula', $student->fechaMatricula) }}" readonly required>
+                                                <div class="col-md-1 "></div>
+                                                <div class="col-md-4 pt-3">
+                                                    <input class="form-control" type="date" name="fechaMatricula" value="{{ old('fechaMatricula', $student->fechaMatricula) }}" required>
                                                     <div class="valid-feedback mv-up">You selected a fecha de matricula!</div>
                                                     <div class="invalid-feedback mv-up">Please select a fecha de matricula!</div>
                                                     Fecha de{{ __('Registration') }}
                                                 </div>
                                             </div>
                                             <div class="col-md-12" style="background-color: rgba(0, 0, 0, 0.068); border-bottom: 1px solid rgba(0, 0, 0, 0.5)">
-                                                {{ __('Informacion del(a) niño(a)') }}</div>
+                                                {{ __('Informacion del(a) niño(a)') }}
+                                            </div>
                                             <div class="col-md-12">
-                                                <input class="form-control" type="text" name="nomAlumno" placeholder="{{ __('Full Name') }}" value="{{ old('nomAlumno', $student->nomAlumno) }}" required>
+                                                <input class="form-control" type="text" name="nomAlumno" value="{{ old('nomAlumno', $student->nomAlumno) }}" required>
                                                 <div class="valid-feedback">Username field is valid!</div>
                                                 <div class="invalid-feedback">Username field cannot be blank!</div>
+                                                @error('nomAlumno')
+                                                    <br>
+                                                    <small>*{{ $message }}</small>
+                                                    <br>
+                                                @enderror
                                             </div>
-
                                             <div class="input-group">
                                                 <div class="col-md-4 my-auto mt-3">
                                                     <input class="form-control" type="date" name="fechaNacimiento" id="fechaNacimiento" onblur="edad()" value="{{ old('fechaNacimiento', $student->fechaNacimiento) }}" required>
@@ -72,37 +99,39 @@
                                                         <div class="invalid-feedback">Gender field cannot be blank!</div>
                                                     </center>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <input class="form-control" type="text" name="EPS" placeholder="EPS" value="{{ old('EPS', $student->EPS) }}" required>
-                                                    <div class="valid-feedback">EPS field is valid!</div>
-                                                    <div class="invalid-feedback">EPS field cannot be blank!</div>
+                                                <div class="col-md-4 my-auto ">
+                                                    <input class="form-control" type="text" name="EdadAlumno" id="EdadAlumno" placeholder="Edad" value="{{ old('EPS', $student->EdadAlumno) }}" readonly required>
+                                                    <div class="valid-feedback">Edad field is valid!</div>
+                                                    <div class="invalid-feedback">Edad field cannot be blank!</div>
                                                 </div>
                                             </div>
 
                                             <div class="input-group">
-                                                <div class="col-md-4 my-auto ">
-                                                    <input class="form-control" type="text" name="EdadAlumno" id="EdadAlumno" placeholder="Edad" value="{{ old('EdadAlumno', $student->EdadAlumno) }}" readonly required>
-                                                    <div class="valid-feedback">Edad field is valid!</div>
-                                                    <div class="invalid-feedback">Edad field cannot be blank!</div>
-                                                </div>
+
                                                 <div class="col-md-4 my-auto mt-4">
                                                     @php
-                                                        $nuipCheck = $student->documentType=="NUIP" ? 'checked' : '';
                                                         $rcCheck = $student->documentType=="RC" ? 'checked' : '';
+                                                        $idexCheck = $student->documentType=="IDEX" ? 'checked' : '';
+                                                        $cdCheck = $student->documentType=="CD" ? 'checked' : '';
+                                                        $pepCheck = $student->documentType=="PEP" ? 'checked' : '';
                                                     @endphp
                                                     <center>
-                                                        <input type="radio" class="btn-check" name="documentType" id="documentTypeNuip" value="NUIP" {{$nuipCheck}} required>
-                                                        <label class="btn btn-sm btn-outline-secondary" for="documentTypeNuip">NUIP</label>
-                                                        <input type="radio" class="btn-check" name="documentType" id="documentTypeRc" value="RC" {{$rcCheck}}>
-                                                        <label class="btn btn-sm btn-outline-secondary" for="documentTypeRc">RC</label>
+                                                        <input type="radio" class="btn-check" name="documentType" id="docTypeRc" value="RC" {{$rcCheck}} required>
+                                                        <label class="btn btn-sm btn-outline-secondary" for="docTypeRc">RC</label>
+                                                        <input type="radio" class="btn-check" name="documentType" id="docTypeIdex" value="IDEX" {{$idexCheck}} required>
+                                                        <label class="btn btn-sm btn-outline-secondary" for="docTypeIdex">IDEX</label>
+                                                        <input type="radio" class="btn-check" name="documentType" id="docTypeCd" value="CD" {{$cdCheck}} required>
+                                                        <label class="btn btn-sm btn-outline-secondary" for="docTypeCd">CD</label>
+                                                        <input type="radio" class="btn-check" name="documentType" id="docTypePep" value="PEP" {{$pepCheck}} required>
+                                                        <label class="btn btn-sm btn-outline-secondary" for="docTypePep">PEP</label>
                                                         <div class="valid-feedback">Tipo documento field is valid!</div>
-                                                        <div class="invalid-feedback">Tipo documento field cannot be blank!
-                                                        </div><br>
+                                                        <div class="invalid-feedback">Tipo documento field cannot be blank!</div><br>
                                                         Tipo documento
                                                     </center>
                                                 </div>
+                                                <div class="col-md-1"></div>
                                                 <div class="col-md-4 my-auto mt-4">
-                                                    <input class="form-control" type="number" name="numDocumento"placeholder="N° documento" value="{{ old('numDocumento', $student->numDocumento) }}" required>
+                                                    <input class="form-control" type="number" name="numDocumento" value="{{ old('numDocumento', $student->numDocumento) }}" required>
                                                     <div class="valid-feedback">Numero de documento field is valid!
                                                     </div>
                                                     <div class="invalid-feedback">Numero de documento field cannot be blank!</div>
@@ -110,35 +139,54 @@
                                             </div>
 
                                             <div class="input-group">
-                                                <div class="col-md-8 mt-1 pt-3">
+                                                <div class="col-md-6 mt-1 pt-3 mx-auto">
                                                     @php
-                                                        $epsCheck = $student->Esalud=="EPS" ? 'checked' : '';
-                                                        $arsCheck = $student->Esalud=="ARS" ? 'checked' : '';
-                                                        $vinCheck = $student->Esalud=="VINCULADO" ? 'checked' : '';
+                                                        $rcCheck = $student->Esalud=="RC" ? 'checked' : '';
+                                                        $rsCheck = $student->Esalud=="RS" ? 'checked' : '';
+                                                        $espCheck = $student->Esalud=="ESP" ? 'checked' : '';
                                                     @endphp
                                                     Reg de salud:
-                                                    <input type="radio" class="btn-check" name="Esalud" id="EPS" value="EPS" autocomplete="off" {{$epsCheck}} required>
-                                                    <label class="btn btn-sm btn-outline-secondary" for="EPS">EPS</label>
+                                                    <input type="radio" class="btn-check" name="Esalud" id="RC" value="RC" autocomplete="off" {{$rcCheck}} required>
+                                                    <label class="btn btn-sm btn-outline-secondary" for="RC">RC</label>
 
-                                                    <input type="radio" class="btn-check" name="Esalud" id="ARS" value="ARS" autocomplete="off" {{$arsCheck}} required>
-                                                    <label class="btn btn-sm btn-outline-secondary" for="ARS">ARS</label>
+                                                    <input type="radio" class="btn-check" name="Esalud" id="RS" value="RS" autocomplete="off" {{$rsCheck}} required>
+                                                    <label class="btn btn-sm btn-outline-secondary" for="RS">RS</label>
 
-                                                    <input type="radio" class="btn-check" name="Esalud" id="VINCULADO" value="VINCULADO" autocomplete="off" {{$vinCheck}} required>
-                                                    <label class="btn btn-sm btn-outline-secondary" for="VINCULADO">VINCULADO</label>
+                                                    <input type="radio" class="btn-check" name="Esalud" id="ESP" value="ESP" autocomplete="off" {{$espCheck}} required>
+                                                    <label class="btn btn-sm btn-outline-secondary" for="ESP">ESP</label>
 
                                                     <div class="valid-feedback mv-up">You selected a regimen de salud de salud!</div>
                                                     <div class="invalid-feedback mv-up">Please select a regimen de salud de salud!</div>
                                                 </div>
-                                                <div class="col-md-4 mt-3">
-                                                    <input class="form-control" type="number" name="numTelefonico"placeholder="N° telefono" value="{{ old('numTelefonico', $student->numTelefonico) }}" required>
+                                                <div class="col-md-6  mx-auto">
+                                                    <input class="form-control" type="text" name="EPS" placeholder="EPS" value="{{ old('EPS', $student->EPS) }}" required>
+                                                    <div class="valid-feedback">EPS field is valid!</div>
+                                                    <div class="invalid-feedback">EPS field cannot be blank!</div>
+                                                </div>
+
+                                            </div>
+                                            <div class="input-group">
+                                                <div class="col-md-3 mt-2">
+                                                    <input class="form-control mr-1" type="number" name="numTelefonico" value="{{ old('numTelefonico', $student->numTelefonico) }}" required>
+                                                    <div class="valid-feedback">Telefono field is valid!</div>
+                                                    <div class="invalid-feedback">Telefono field cannot be blank!</div>
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-3 mt-2 mr-1">
+                                                    <input class="form-control" type="number" name="numTelefonicoUno" value="{{ old('numTelefonicoUno', $student->numTelefonicoUno) }}">
+                                                    <div class="valid-feedback">Telefono field is valid!</div>
+                                                    <div class="invalid-feedback">Telefono field cannot be blank!</div>
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-3 mt-2 ">
+                                                    <input class="form-control" type="number" name="numTelefonicoDos" value="{{ old('numTelefonicoDos', $student->numTelefonicoDos) }}">
                                                     <div class="valid-feedback">Telefono field is valid!</div>
                                                     <div class="invalid-feedback">Telefono field cannot be blank!</div>
                                                 </div>
                                             </div>
-
                                             <div class="input-group">
                                                 <div class="col-md-12 ">
-                                                    <input class="form-control" type="text" name="direccionAlumno"placeholder="Direccion" value="{{ old('direccionAlumno', $student->direccionAlumno) }}" required>
+                                                    <input class="form-control" type="text" name="direccionAlumno" value="{{ old('direccionAlumno', $student->direccionAlumno) }}" required>
                                                     <div class="valid-feedback">Direccion field is valid!</div>
                                                     <div class="invalid-feedback">Direccion field cannot be blank!</div>
                                                 </div>
@@ -154,98 +202,144 @@
                                                     <div class="invalid-feedback">Localidad field cannot be blank!</div>
                                                 </div>
                                             </div>
-                                            <br>
-                                            <div class="col-md-12" style="background-color: rgba(0, 0, 0, 0.068); border-bottom: 1px solid rgba(0, 0, 0, 0.5)"> {{ __('Informacion de la Madre') }}</div>
+                                            <div class="col-md-12 mt-1" style="background-color: rgba(0, 0, 0, 0.068); border-bottom: 1px solid rgba(0, 0, 0, 0.5)"> {{ __('Informacion de la Madre') }}</div>
                                             <div class="input-group">
                                                 <div class="col-md-6">
-                                                    <input class="form-control" type="text" name="nombreMama" placeholder="Nombre completo" value="{{ old('nombreMama', $student->nombreMama) }}"  required>
+                                                    <input class="form-control" type="text" name="nombreMama" value="{{ old('nombreMama', $student->nombreMama) }}" required>
                                                     <div class="valid-feedback">Nombre field is valid!</div>
                                                     <div class="invalid-feedback">Nombre field cannot be blank!</div>
                                                 </div>
                                                 <div class="col-md-1"></div>
                                                 <div class="col-md-5 my-auto mt-3">
-                                                    <input class="form-control" type="number" name="documentoMama"placeholder="Nº documento" value="{{ old('documentoMama', $student->documentoMama) }}" required>
+                                                    <input class="form-control" type="number" name="documentoMama" value="{{ old('documentoMama', $student->documentoMama) }}" required>
                                                     <div class="valid-feedback">Nº documento mama field is valid!</div>
                                                     <div class="invalid-feedback">Nº documento mama field cannot be blank!</div>
                                                 </div>
                                                 <div class="col-md-4 my-auto mt-3">
-                                                    <input class="form-control" type="number" name="telefonoMama" placeholder="Nº telefonico" value="{{ old('telefonoMama', $student->telefonoMama) }}" required>
+                                                    <input class="form-control" type="number" name="telefonoMama" value="{{ old('telefonoMama', $student->telefonoMama) }}" required>
                                                     <div class="valid-feedback">Telefono field is valid!</div>
                                                     <div class="invalid-feedback">Telefono field cannot be blank!</div>
                                                 </div>
                                                 <div class="col-md-1"></div>
                                                 <div class="col-md-7">
-                                                    <input class="form-control" type="text" name="direccionMama"placeholder="Direccion" value="{{ old('direccionMama', $student->direccionMama) }}" required>
+                                                    <input class="form-control" type="text" name="direccionMama" value="{{ old('direccionMama', $student->direccionMama) }}" required>
                                                     <div class="valid-feedback">Direccion field is valid!</div>
                                                     <div class="invalid-feedback">Direccion field cannot be blank!</div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <input class="form-control" type="email" name="correoMama" value="{{ old('correoMama', $student->correoMama) }}" required>
+                                                    <div class="valid-feedback">Correo field is valid!</div>
+                                                    <div class="invalid-feedback">Correo field cannot be blank!</div>
                                                 </div>
                                             </div>
                                             <br>
                                             <div class="col-md-12" style="background-color: rgba(0, 0, 0, 0.068); border-bottom: 1px solid rgba(0, 0, 0, 0.5)"> {{ __('Informacion del Padre') }}</div>
                                             <div class="input-group">
                                                 <div class="col-md-6">
-                                                    <input class="form-control" type="text" name="nombrePapa"placeholder="Nombre completo" value="{{ old('nombrePapa', $student->nombrePapa) }}" required>
+                                                    <input class="form-control" type="text" name="nombrePapa" value="{{ old('nombrePapa', $student->nombrePapa) }}" required>
                                                     <div class="valid-feedback">Nombre field is valid!</div>
                                                     <div class="invalid-feedback">Nombre field cannot be blank!</div>
                                                 </div>
                                                 <div class="col-md-1"></div>
                                                 <div class="col-md-5">
-                                                    <input class="form-control my-auto mt-3" type="number" name="documentoPapa"placeholder="Nº documento" value="{{ old('documentoPapa', $student->documentoPapa) }}" required>
+                                                    <input class="form-control my-auto mt-3" type="number" name="documentoPapa" value="{{ old('documentoPapa', $student->documentoPapa) }}" required>
                                                     <div class="valid-feedback">Documento field is valid!</div>
                                                     <div class="invalid-feedback">Documento field cannot be blank!</div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input class="form-control my-auto mt-3" type="number" name="telefonoPapa" placeholder="Nº telefonico" value="{{ old('telefonoPapa', $student->telefonoPapa) }}" required>
+                                                    <input class="form-control my-auto mt-3" type="number" name="telefonoPapa" value="{{ old('telefonoPapa', $student->telefonoPapa) }}" required>
                                                     <div class="valid-feedback">Telefono field is valid!</div>
                                                     <div class="invalid-feedback">Telefono field cannot be blank!</div>
                                                 </div>
                                                 <div class="col-md-1"></div>
                                                 <div class="col-md-7">
-                                                    <input class="form-control" type="text" name="direccionPapa" placeholder="Direccion" value="{{ old('direccionPapa', $student->direccionPapa) }}" required>
+                                                    <input class="form-control" type="text" name="direccionPapa" value="{{ old('direccionPapa', $student->direccionPapa) }}" required>
                                                     <div class="valid-feedback">Direccion field is valid!</div>
                                                     <div class="invalid-feedback">Direccion field cannot be blank! </div>
                                                 </div>
+                                                <div class="col-md-12">
+                                                    <input class="form-control" type="email" name="correoPapa" value="{{ old('direccionPapa', $student->correoPapa) }}" required>
+                                                    <div class="valid-feedback">Correo field is valid!</div>
+                                                    <div class="invalid-feedback">Correo field cannot be blank!</div>
+                                                </div>
                                             </div>
                                             <br>
-                                            <div class="col-md-12" style="background-color: rgba(0, 0, 0, 0.068); border-bottom: 1px solid rgba(0, 0, 0, 0.5)"> {{ __('Informacion de los responsables') }}</div>
                                             <div class="input-group">
-                                                <div class="col-md-5">
-                                                    <br>
-                                                    <div class="col-md-12" style="background-color: rgba(0, 0, 0, 0.068); border-bottom: 1px solid rgba(0, 0, 0, 0.5)"> {{ __('Primer responsable') }}</div>
-                                                    <input class="form-control" type="text" name="nomPriRes"placeholder="Apellido(s) y nombre(s)" value="{{ old('nomPriRes', $student->nomPriRes) }}" required>
+                                                <div class="col-md-12" style="background-color: rgba(0, 0, 0, 0.068); border-bottom: 1px solid rgba(0, 0, 0, 0.5)"> {{ __('Primer responsable') }}</div>
+                                                <div class="col-md-8">
+                                                    <input class="form-control" type="text" name="nomPriRes" value="{{ old('nomPriRes', $student->nomPriRes) }}" required>
                                                     <div class="valid-feedback">Nombre 1er responsable field is valid!</div>
                                                     <div class="invalid-feedback">Nombre 1er responsable field cannot be blank!</div>
-                                                    <input class="form-control my-auto mt-3" type="number" name="docPriRes"placeholder="N° documento" value="{{ old('docPriRes', $student->docPriRes) }}" required>
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-3">
+                                                    <input class="form-control my-auto mt-3" type="number" name="docPriRes" value="{{ old('docPriRes', $student->docPriRes) }}" required>
                                                     <div class="valid-feedback">Documento 1er responsable field is valid!</div>
                                                     <div class="invalid-feedback">Documento 1er responsable field cannot be blank!</div>
-                                                    <input class="form-control" type="text" name="dirPriRes"placeholder="Direccion" value="{{ old('dirPriRes', $student->dirPriRes) }}" required>
-                                                    <div class="valid-feedback">Direccion 1er responsable field is valid!</div>
-                                                    <div class="invalid-feedback">Direccion 1er responsable field cannot be blank!</div>
-                                                    <input class="form-control my-auto mt-3" type="number" name="telPriRes" placeholder="N° telefono" value="{{ old('telPriRes', $student->telPriRes) }}" required>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input class="form-control my-auto mt-3" type="number" name="telPriRes" value="{{ old('telPriRes', $student->telPriRes) }}" required>
                                                     <div class="valid-feedback">Telefono 1er responsable field is valid!</div>
                                                     <div class="invalid-feedback">Telefono 1er responsable field cannot be blank!</div>
                                                 </div>
-                                                <div class="col-md-2"></div>
-                                                <div class="col-md-5">
-                                                    <br>
-                                                    <div class="col-md-12" style="background-color: rgba(0, 0, 0, 0.068); border-bottom: 1px solid rgba(0, 0, 0, 0.5)"> {{ __('Segundo responsable') }}</div>
-                                                    <input class="form-control" type="text" name="nomSegRes"placeholder="Apellido(s) y nombre(s)" value="{{ old('nomSegRes', $student->nomSegRes) }}" required>
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-8">
+                                                    <input class="form-control" type="text" name="dirPriRes" value="{{ old('dirPriRes', $student->dirPriRes) }}" required>
+                                                    <div class="valid-feedback">Direccion 1er responsable field is valid!</div>
+                                                    <div class="invalid-feedback">Direccion 1er responsable field cannot be blank!</div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="input-group">
+                                                <div class="col-md-12" style="background-color: rgba(0, 0, 0, 0.068); border-bottom: 1px solid rgba(0, 0, 0, 0.5)"> {{ __('Segundo responsable') }}</div>
+                                                <div class="col-md-8">
+                                                    <input class="form-control" type="text" name="nomSegRes" value="{{ old('nomSegRes', $student->nomSegRes) }}" required>
                                                     <div class="valid-feedback">Nombre 2do responsable is valid!</div>
                                                     <div class="invalid-feedback">Nombre 2do responsable cannot be blank!</div>
-                                                    <input class="form-control my-auto mt-3" type="number" name="docSegRes"placeholder="N° documento" value="{{ old('docSegRes', $student->docSegRes) }}" required>
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-3">
+                                                    <input class="form-control my-auto mt-3" type="number" name="docSegRes" value="{{ old('docSegRes', $student->docSegRes) }}" required>
                                                     <div class="valid-feedback">Documento 2do responsable field is valid!</div>
                                                     <div class="invalid-feedback">Documento 2do responsable field cannot be blank!</div>
-                                                    <input class="form-control" type="text" name="dirSegRes"placeholder="Direccion" value="{{ old('dirSegRes', $student->dirSegRes) }}" required>
-                                                    <div class="valid-feedback">Direccion 2do responsable field is valid!</div>
-                                                    <div class="invalid-feedback">Direccion 2do responsable field cannot be blank!</div>
-                                                    <input class="form-control my-auto mt-3" type="number" name="telSegRes"placeholder="N° telefono" value="{{ old('telSegRes', $student->telSegRes) }}" required>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input class="form-control my-auto mt-3" type="number" name="telSegRes" value="{{ old('telSegRes', $student->telSegRes) }}" required>
                                                     <div class="valid-feedback">Telefono 2do responsable field is valid!</div>
                                                     <div class="invalid-feedback">Telefono 2do responsable field cannot be blank!</div>
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-8">
+                                                    <input class="form-control" type="text" name="dirSegRes" value="{{ old('dirSegRes', $student->dirSegRes) }}" required>
+                                                    <div class="valid-feedback">Direccion 2do responsable field is valid!</div>
+                                                    <div class="invalid-feedback">Direccion 2do responsable field cannot be blank!</div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="input-group">
+                                                <div class="col-md-12" style="background-color: rgba(0, 0, 0, 0.068); border-bottom: 1px solid rgba(0, 0, 0, 0.5)"> {{ __('Tercer responsable') }}</div>
+                                                <div class="col-md-8">
+                                                    <input class="form-control" type="text" name="nomTerRes" value="{{ old('nomTerRes', $student->nomTerRes) }}">
+                                                    <div class="valid-feedback">Nombre 3er responsable is valid!</div>
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-3">
+                                                    <input class="form-control my-auto mt-3" type="number" name="docTerRes" value="{{ old('docTerRes', $student->docTerRes) }}">
+                                                    <div class="valid-feedback">Documento 3er responsable field is valid!</div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input class="form-control my-auto mt-3" type="number" name="telTerRes" value="{{ old('telTerRes', $student->telTerRes) }}">
+                                                    <div class="valid-feedback">Telefono 3er responsable field is valid!</div>
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-8">
+                                                    <input class="form-control" type="text" name="dirTerRes" value="{{ old('dirTerRes', $student->dirTerRes) }}">
+                                                    <div class="valid-feedback">Direccion 3er responsable field is valid!</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4 mx-auto">
                                                 <div class="form-button mt-3 ">
-                                                    <button id="submit" type="submit" class="sombra btn btn-secondary">{{ __('edit student') }}</button>
+                                                    <button id="submit" type="submit" class="sombra btn btn-secondary">{{__('Edit student')}}</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -308,7 +402,7 @@
                 ultimoDiaMes = new Date(ahora_ano, ahora_mes - 1, 0);
                 dias = ultimoDiaMes.getDate() - (dia - ahora_dia);
             }
-            var edadFinal = edad + " años, " + meses + " meses y " + dias + " días"
+            var edadFinal = edad + " años, " + meses + " meses " + dias + " días"
             document.getElementById("EdadAlumno").value = edadFinal;
         }
     </script>

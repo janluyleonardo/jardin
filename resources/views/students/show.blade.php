@@ -12,11 +12,11 @@
                         <div class="card py-1 px-1 ">
                             <div class="card-header">
                                 <div class="row">
-                                    <div class="col-md-11 mx-auto my-auto text-center">
+                                    <div class="col-md-10 mx-auto my-auto text-center">
                                         <b>{{ Str::upper($student->nomAlumno)}}</b>
                                     </div>
-                                    <div class="col-md-1">
-                                        <a title="Regresar" href="{{ route('students.index', $student) }}" class="sombra btn btn-danger"><i class="bi bi-box-arrow-left"></i></a>
+                                    <div class="col-md-2">
+                                        <a title="Regresar" href="{{ route('students.index', $student) }}" class="sombra btn btn-danger mx-auto">volver</a>
                                     </div>
                                 </div>
                             </div>
@@ -32,6 +32,8 @@
                                     <div class="col-md-6"><b>Numero documento:</b></div><div class="col-md-6">{{ $student->numDocumento}}</div>
                                     <div class="col-md-6"><b>Regimen de salud:</b></div><div class="col-md-6">{{ $student->Esalud}}</div>
                                     <div class="col-md-6"><b>Numero telefonico:</b></div><div class="col-md-6">{{ $student->numTelefonico}}</div>
+                                    <div class="col-md-6"><b>Numero telefonico 1:</b></div><div class="col-md-6">{{ $student->numTelefonicoUno}}</div>
+                                    <div class="col-md-6"><b>Numero telefonico 2:</b></div><div class="col-md-6">{{ $student->numTelefonicoDos}}</div>
                                     <div class="col-md-6"><b>Direccion:</b></div><div class="col-md-6">{{ $student->direccionAlumno}}</div>
                                     <div class="col-md-6"><b>Barrio:</b></div><div class="col-md-6">{{ $student->barrio}}</div>
                                     <div class="col-md-6"><b>Localidad:</b></div><div class="col-md-6">{{ $student->localidad}}</div>
@@ -39,10 +41,12 @@
                                     <div class="col-md-6"><b>Documento mama:</b></div><div class="col-md-6">{{ $student->documentoMama}}</div>
                                     <div class="col-md-6"><b>Telefono mama:</b></div><div class="col-md-6">{{ $student->telefonoMama}}</div>
                                     <div class="col-md-6"><b>Direccion mama:</b></div><div class="col-md-6">{{ $student->direccionMama}}</div>
+                                    <div class="col-md-6"><b>Correo mama:</b></div><div class="col-md-6">{{ $student->correoMama}}</div>
                                     <div class="col-md-6"><b>Nombre papa:</b></div><div class="col-md-6">{{ $student->nombrePapa}}</div>
                                     <div class="col-md-6"><b>Documento papa:</b></div><div class="col-md-6">{{ $student->documentoPapa}}</div>
                                     <div class="col-md-6"><b>Telefono papa:</b></div><div class="col-md-6">{{ $student->telefonoPapa}}</div>
                                     <div class="col-md-6"><b>Direccion papa:</b></div><div class="col-md-6">{{ $student->direccionPapa}}</div>
+                                    <div class="col-md-6"><b>Correo papa:</b></div><div class="col-md-6">{{ $student->correoPapa}}</div>
                                     <div class="col-md-6"><b>1er responsable:</b></div><div class="col-md-6">{{ $student->nomPriRes}}</div>
                                     <div class="col-md-6"><b>Documento:</b></div><div class="col-md-6">{{ $student->docPriRes}}</div>
                                     <div class="col-md-6"><b>Direccion:</b></div><div class="col-md-6">{{ $student->dirPriRes}}</div>
@@ -51,6 +55,10 @@
                                     <div class="col-md-6"><b>Documento:</b></div><div class="col-md-6">{{ $student->docSegRes}}</div>
                                     <div class="col-md-6"><b>Direccion:</b></div><div class="col-md-6">{{ $student->dirSegRes}}</div>
                                     <div class="col-md-6"><b>Telefono:</b></div><div class="col-md-6">{{ $student->telSegRes}}</div>
+                                    <div class="col-md-6"><b>3er responsable:</b></div><div class="col-md-6">{{ $student->nomTerRes}}</div>
+                                    <div class="col-md-6"><b>Documento:</b></div><div class="col-md-6">{{ $student->docTerRes}}</div>
+                                    <div class="col-md-6"><b>Direccion:</b></div><div class="col-md-6">{{ $student->dirTerRes}}</div>
+                                    <div class="col-md-6"><b>Telefono:</b></div><div class="col-md-6">{{ $student->telTerRes}}</div>
                                 </div>
                             </div>
                             <div class="card-footer">

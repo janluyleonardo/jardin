@@ -21,9 +21,11 @@
                             <div class="card bg-light ">
                                 <div class="card-header">
                                     <div class="row">
-                                        <div class="col-md-6">{{__('Records in database')}}</div>
-                                        <div class="col-md-6 flex-row-reverse">
-                                            <a title="Regresar" href="{{ route('students.create') }}" class="sombra btn btn-secondary"> Agregar alumno</a>
+                                        <div class="col-md-8 py-2">
+                                            <strong>{{__('Records in database')}}</strong>
+                                        </div>
+                                        <div class="col-md-4 flex-row-reverse">
+                                            <a title="Regresar" href="{{ route('students.create') }}" class="sombra btn btn-secondary">Agregar alumno</a>
                                         </div>
                                     </div>
                                 </div>
