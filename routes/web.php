@@ -29,5 +29,6 @@ Route::middleware([
     })->name('dashboard');
     Route::resource('/students', StudentsController::class);
     Route::resource('/directories', DirectoriesController::class);
+    Route::get('export', [StudentsController::class, 'export'])->name('export');
 });
 

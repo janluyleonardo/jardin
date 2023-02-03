@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Exports\StudentsExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class DirectoriesController extends Controller
 {
@@ -12,10 +15,15 @@ class DirectoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $students = Student::orderBy('nomAlumno', 'asc')->get();
-        return view('directories.index', compact('students'));
+      $texto = trim($request->get('texto'));
+      // $students = Student::orderBy('nomAlumno', 'asc')->paginate(10)->get();
+      $students = Student::where('nomAlumno','LIKE','%'.$texto.'%')
+                  ->orWhere('numDocumento','LIKE','%'.$texto.'%')
+                  ->orderBy('id')
+                  ->paginate();
+      return view('directories.index', compact('students','texto'));
     }
 
     /**
@@ -82,5 +90,16 @@ class DirectoriesController extends Controller
     public function destroy($id)
     {
         //
+    }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function export()
+    {
+      return Excel::download(new StudentsExport, 'Registros.xlsx');
+      return view('Registrations.index');
     }
 }

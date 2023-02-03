@@ -60,7 +60,7 @@
                                                     Fecha de{{ __('Registration') }}
                                                 </div>
                                             </div>
-                                            <div class="col-md-12" style="background-color: rgba(0, 0, 0, 0.068); border-bottom: 1px solid rgba(0, 0, 0, 0.5)">
+                                            <div class="col-md-12 encabezado">
                                                 {{ __('Informacion del(a) niño(a)') }}
                                             </div>
                                             <div class="col-md-12">
@@ -182,7 +182,7 @@
                                                     <div class="invalid-feedback">Localidad field cannot be blank!</div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12 mt-1" style="background-color: rgba(0, 0, 0, 0.068); border-bottom: 1px solid rgba(0, 0, 0, 0.5)"> {{ __('Informacion de la Madre') }}</div>
+                                            <div class="encabezado col-md-12 mt-1"> {{ __('Informacion de la Madre') }}</div>
                                             <div class="input-group">
                                                 <div class="col-md-6">
                                                     <input class="form-control" type="text" name="nombreMama" placeholder="Nombre completo" required>
@@ -213,7 +213,7 @@
                                                 </div>
                                             </div>
                                             <br>
-                                            <div class="col-md-12" style="background-color: rgba(0, 0, 0, 0.068); border-bottom: 1px solid rgba(0, 0, 0, 0.5)"> {{ __('Informacion del Padre') }}</div>
+                                            <div class="col-md-12 encabezado"> {{ __('Informacion del Padre') }}</div>
                                             <div class="input-group">
                                                 <div class="col-md-6">
                                                     <input class="form-control" type="text" name="nombrePapa"placeholder="Nombre completo" required>
@@ -245,7 +245,7 @@
                                             </div>
                                             <br>
                                             <div class="input-group">
-                                                <div class="col-md-12" style="background-color: rgba(0, 0, 0, 0.068); border-bottom: 1px solid rgba(0, 0, 0, 0.5)"> {{ __('Primer responsable') }}</div>
+                                                <div class="col-md-12 encabezado"> {{ __('Primer responsable') }}</div>
                                                 <div class="col-md-8">
                                                     <input class="form-control" type="text" name="nomPriRes"placeholder="Apellido(s) y nombre(s)" required>
                                                     <div class="valid-feedback">Nombre 1er responsable field is valid!</div>
@@ -271,7 +271,7 @@
                                             </div>
                                             <br>
                                             <div class="input-group">
-                                                <div class="col-md-12" style="background-color: rgba(0, 0, 0, 0.068); border-bottom: 1px solid rgba(0, 0, 0, 0.5)"> {{ __('Segundo responsable') }}</div>
+                                                <div class="col-md-12 encabezado"> {{ __('Segundo responsable') }}</div>
                                                 <div class="col-md-8">
                                                     <input class="form-control" type="text" name="nomSegRes"placeholder="Apellido(s) y nombre(s)" required>
                                                     <div class="valid-feedback">Nombre 2do responsable is valid!</div>
@@ -297,7 +297,7 @@
                                             </div>
                                             <br>
                                             <div class="input-group">
-                                                <div class="col-md-12" style="background-color: rgba(0, 0, 0, 0.068); border-bottom: 1px solid rgba(0, 0, 0, 0.5)"> {{ __('Tercer responsable') }}</div>
+                                                <div class="col-md-12 encabezado"> {{ __('Tercer responsable') }}</div>
                                                 <div class="col-md-8">
                                                     <input class="form-control" type="text" name="nomTerRes"placeholder="Apellido(s) y nombre(s)">
                                                     <div class="valid-feedback">Nombre 3er responsable is valid!</div>

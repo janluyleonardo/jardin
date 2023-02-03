@@ -154,3 +154,10 @@ body {
 .valid-feedback {
     color: #024224;
 }
+.encabezado{
+  background-color: rgba(0, 0, 0, 0.068);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 5px 5px 5px 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
