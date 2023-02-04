@@ -58,13 +58,13 @@
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                   <a title="Show" href="#showModal{{$student->id}}" class="sombra btn btn-info" data-bs-toggle="modal">{{__('See')}}</a>
                                   <a title="Editar" href="{{ route('students.edit', $student) }}" class="sombra btn btn-warning" >{{__('Edit')}}</a>
-                                  <a title="Eliminar" href="#deleteModal{{$student->student}}" class="sombra btn btn-danger" data-bs-toggle="modal">{{__('Delete')}}</a>
+                                  <a title="Eliminar" href="#deleteModal{{$student->id}}" class="sombra btn btn-danger" data-bs-toggle="modal">{{__('Delete')}}</a>
                                 </div>
                               </td>
                             </tr>
                           <?php $i += +1; ?>
                           <!-- Modal show-->
-                          <div class="modal fade" id="showModal{{$student->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal fade" id="showModal{{$student->id}}" tabindex="-1" aria-labelledby="showModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                               <div class="modal-content sombra bg-white">
                                 <div class="modal-header sombra bn-100">
@@ -106,6 +106,30 @@
                                 </div>
                                 <div class="modal-footer bn-100">
                                   <button type="button" class=" sombra btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Modal delete-->
+                          <div class="modal fade" id="deleteModal{{$student->id}}" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content sombra bg-white">
+                                <div class="modal-header sombra bn-100">
+                                  <h1 class="modal-title fs-5 mx-auto" id="exampleModalLabel">{{ Str::upper($student->nomAlumno)}}</h1>
+                                  <button type="button" class="btn-close sombra" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body sombra">
+                                  esta segur
+                                </div>
+                                <div class="modal-footer bn-100">
+                                  <button type="button" class=" sombra btn btn-warning" data-bs-dismiss="modal">Close</button>
+                                  <form action="{{ route('students.destroy', $student) }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class=" sombra btn btn-danger">
+                                      Eliminar registro
+                                    </button>
+                                  </form>
                                 </div>
                               </div>
                             </div>

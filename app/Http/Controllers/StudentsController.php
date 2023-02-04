@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreStudent;
+use App\Models\stdDeleted;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -104,9 +105,13 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Student $student)
     {
-        TODO://pendiente implementar la funcion de eliminar un registro
-        //
+
+      $student->delete();
+      return redirect()->route('students.index', $student);
+      // $deleted = stdDeleted::findOrFail($id)->dd();
+      // return $deleted;
+      // return "entro a eliminar registro";
     }
 }
