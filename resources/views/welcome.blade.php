@@ -17,9 +17,10 @@
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             <div class="max-w-6xl mx-auto sm:px-1 lg:px-1">
-                <div class="flex justify-center pt-1 sm:justify-start sm:pt-0" >
-                    <img class="sombra" src="{{ asset('images/jardin-logo.png') }}" alt="logo-paola" width="568">
+                <div class="flex justify-center pt-1 sm:justify-start sm:pt-0" style="background-color: white">
+                    <img class="sombra" src="{{ asset('images/jardin-logo.png?v='.now()->format('H.s')) }}" alt="logo-paola" width="500">
                 </div>
+                <hr>
                 <div class="d-flex justify-content-center">
                     @if (Route::has('login'))
                         @auth
