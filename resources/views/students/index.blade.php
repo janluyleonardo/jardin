@@ -119,7 +119,7 @@
                                   <button type="button" class="btn-close sombra" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body sombra">
-                                  esta segur
+                                  esta segura de eliminar el registro de: <strong>{{ Str::upper($student->nomAlumno)}}</strong>
                                 </div>
                                 <div class="modal-footer bn-100">
                                   <button type="button" class=" sombra btn btn-warning" data-bs-dismiss="modal">Close</button>

@@ -187,6 +187,7 @@
                                                 </div>
                                               </div>
                                             </div>
+                                            <br>
                                             <div class="encabezado col-md-12 mt-1">
                                               {{ __('Informacion de la Madre') }}
                                               <a class="texto" href="javascript:MostrarOcultar('Madre');">👇</a>
