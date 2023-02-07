@@ -3,11 +3,11 @@
         <x-jet-application-logo class="block h-12 w-auto inset-x-auto"/>
     </div>
 
-    <div class="mt-8 text-2xl">
+    <div class="mt-3 text-2xl">
         {{__('Welcome_title')}}
     </div>
 
-    <div class="mt-6 text-gray-500">
+    <div class="mt-3 text-gray-500">
         {{__('Welcome_subtitle')}}
     </div>
 </div>
