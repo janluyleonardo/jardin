@@ -15,6 +15,7 @@ class CreateStdDeletedsTable extends Migration
     {
         Schema::create('std_deleteds', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('idDeleted');
             $table->string('nivel');
             $table->date('fechaMatricula');
             $table->string('nomAlumno');

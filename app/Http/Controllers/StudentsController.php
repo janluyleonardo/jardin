@@ -18,9 +18,9 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        $mensaje = "";
-        $students = Student::orderBy('id', 'desc')->paginate(10);
-        return view('students.index', compact('students','mensaje'));
+      $mensaje = "";
+      $students = Student::orderBy('id', 'desc')->paginate(10);
+      return view('students.index', compact('students','mensaje'));
     }
 
     /**
@@ -30,9 +30,7 @@ class StudentsController extends Controller
      */
     public function create()
     {
-        // return view('students.create',compact('mensaje','students'));
-        // $hoy = now()->format('Y-m-d');
-        return view('students.create');
+      return view('students.create');
     }
 
     /**
@@ -43,11 +41,11 @@ class StudentsController extends Controller
      */
     public function store(StoreStudent $request )
     {
-        $request->merge([
-            'nomAlumno' =>($request->nomAlumno),
-        ]);
-        $student = Student::create($request->all());
-        return redirect()->route('students.show', $student);
+      $request->merge([
+          'nomAlumno' =>($request->nomAlumno),
+      ]);
+      $student = Student::create($request->all());
+      return redirect()->route('students.show', $student);
     }
 
     /**
@@ -58,7 +56,7 @@ class StudentsController extends Controller
      */
     public function addStudent(Request $request)
     {
-        return "store";
+      return "store";
     }
 
     /**
@@ -69,8 +67,8 @@ class StudentsController extends Controller
      */
     public function show(Request $request, Student $student)
     {
-        $mensaje ="Registro actualizado correctamente";
-        return view('students.show', compact('student','mensaje'));
+      $mensaje ="Registro actualizado correctamente";
+      return view('students.show', compact('student','mensaje'));
     }
 
     /**
@@ -81,9 +79,9 @@ class StudentsController extends Controller
      */
     public function edit(Student $student)
     {
-        $hoy = now()->format('Y-m-d');
-        $id = $student->id;
-        return view('students.edit', compact('student','hoy'));
+      $hoy = now()->format('Y-m-d');
+      $id = $student->id;
+      return view('students.edit', compact('student','hoy'));
     }
 
     /**
@@ -95,8 +93,8 @@ class StudentsController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        $student->update($request->all());
-        return redirect()->route('students.show', $student);
+      $student->update($request->all());
+      return redirect()->route('students.show', $student);
     }
 
     /**
@@ -107,11 +105,7 @@ class StudentsController extends Controller
      */
     public function destroy(Student $student)
     {
-
       $student->delete();
       return redirect()->route('students.index', $student);
-      // $deleted = stdDeleted::findOrFail($id)->dd();
-      // return $deleted;
-      // return "entro a eliminar registro";
     }
 }
