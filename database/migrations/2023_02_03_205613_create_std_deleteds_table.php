@@ -22,7 +22,7 @@ class CreateStdDeletedsTable extends Migration
             $table->string('genero');
             $table->string('EdadAlumno');
             $table->string('documentType');
-            $table->bigInteger('numDocumento')->unique();
+            $table->bigInteger('numDocumento');
             $table->string('Esalud');
             $table->string('EPS');
             $table->bigInteger('numTelefonico');
