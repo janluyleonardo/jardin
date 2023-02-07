@@ -4,6 +4,17 @@
             {{ __('Manage Incomes') }}
         </h2>
     </x-slot>
+    <script languaje="Javascript">
+      document.write('<style type="text/css">div.cp_oculta{display: none;}</style>');
+      function MostrarOcultar(capa,enlace)
+      {
+        if (document.getElementById)
+        {
+            var aux = document.getElementById(capa).style;
+            aux.display = aux.display? "":"block";
+        }
+      }
+    </script>
     <div class="container">
         <div class="row py-0">
             <div class="col-md-6 mx-auto py-1">
@@ -61,19 +72,14 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-12 encabezado">
-                                                {{ __('Informacion del(a) niño(a)') }}
-                                            </div>
-                                            <div class="col-md-12">
-                                                <input class="form-control" type="text" name="nomAlumno" placeholder="{{ __('Full Name') }}" required>
-                                                <div class="valid-feedback">Username field is valid!</div>
-                                                <div class="invalid-feedback">Username field cannot be blank!</div>
-                                                @error('nomAlumno')
-                                                    <br>
-                                                    <small>*{{ $message }}</small>
-                                                    <br>
-                                                @enderror
+                                              {{ __('Informacion del(a) niño(a)') }}
                                             </div>
                                             <div class="input-group">
+                                              <div class="col-md-12">
+                                                  <input class="form-control" type="text" name="nomAlumno" placeholder="{{ __('Full Name') }}" required>
+                                                  <div class="valid-feedback">Username field is valid!</div>
+                                                  <div class="invalid-feedback">Username field cannot be blank!</div>
+                                              </div>
                                                 <div class="col-md-4 my-auto mt-3">
                                                     <input class="form-control" type="date" name="fechaNacimiento" id="fechaNacimiento" onblur="edad()" required>
                                                     <div class="valid-feedback mv-up">You selected a fecha de nacimiento!</div>
@@ -98,7 +104,6 @@
                                             </div>
 
                                             <div class="input-group">
-
                                                 <div class="col-md-4 my-auto mt-4">
                                                     <center>
                                                         <input type="radio" class="btn-check" name="documentType" id="docTypeRc" value="RC">
@@ -117,8 +122,7 @@
                                                 <div class="col-md-1"></div>
                                                 <div class="col-md-4 my-auto mt-4">
                                                     <input class="form-control" type="number" name="numDocumento"placeholder="N° documento" required>
-                                                    <div class="valid-feedback">Numero de documento field is valid!
-                                                    </div>
+                                                    <div class="valid-feedback">Numero de documento field is valid!</div>
                                                     <div class="invalid-feedback">Numero de documento field cannot be blank!</div>
                                                 </div>
                                             </div>
@@ -182,39 +186,52 @@
                                                     <div class="invalid-feedback">Localidad field cannot be blank!</div>
                                                 </div>
                                             </div>
-                                            <div class="encabezado col-md-12 mt-1"> {{ __('Informacion de la Madre') }}</div>
-                                            <div class="input-group">
-                                                <div class="col-md-6">
-                                                    <input class="form-control" type="text" name="nombreMama" placeholder="Nombre completo" required>
-                                                    <div class="valid-feedback">Nombre field is valid!</div>
-                                                    <div class="invalid-feedback">Nombre field cannot be blank!</div>
-                                                </div>
-                                                <div class="col-md-1"></div>
-                                                <div class="col-md-5 my-auto mt-3">
-                                                    <input class="form-control" type="number" name="documentoMama"placeholder="Nº documento" required>
-                                                    <div class="valid-feedback">Nº documento mama field is valid!</div>
-                                                    <div class="invalid-feedback">Nº documento mama field cannot be blank!</div>
-                                                </div>
-                                                <div class="col-md-4 my-auto mt-3">
-                                                    <input class="form-control" type="number" name="telefonoMama" placeholder="Nº telefonico" required>
-                                                    <div class="valid-feedback">Telefono field is valid!</div>
-                                                    <div class="invalid-feedback">Telefono field cannot be blank!</div>
-                                                </div>
-                                                <div class="col-md-1"></div>
-                                                <div class="col-md-7">
-                                                    <input class="form-control" type="text" name="direccionMama"placeholder="Direccion" required>
-                                                    <div class="valid-feedback">Direccion field is valid!</div>
-                                                    <div class="invalid-feedback">Direccion field cannot be blank!</div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <input class="form-control" type="email" name="correoMama"placeholder="Correo electronico" required>
-                                                    <div class="valid-feedback">Correo field is valid!</div>
-                                                    <div class="invalid-feedback">Correo field cannot be blank!</div>
-                                                </div>
+                                            <div class="encabezado col-md-12 mt-1">
+                                              {{ __('Informacion de la Madre') }}
+                                              <a class="texto" href="javascript:MostrarOcultar('texto1');">
+                                                👇
+                                              </a>
+                                            </div>
+                                            <div class="container cp_oculta" id="texto1">
+                                                <div class="input-group">
+                                                  <div class="col-md-6">
+                                                      <input class="form-control" type="text" name="nombreMama" placeholder="Nombre completo" required>
+                                                      <div class="valid-feedback">Nombre field is valid!</div>
+                                                      <div class="invalid-feedback">Nombre field cannot be blank!</div>
+                                                  </div>
+                                                  <div class="col-md-1"></div>
+                                                  <div class="col-md-5 my-auto mt-3">
+                                                      <input class="form-control" type="number" name="documentoMama"placeholder="Nº documento" required>
+                                                      <div class="valid-feedback">Nº documento mama field is valid!</div>
+                                                      <div class="invalid-feedback">Nº documento mama field cannot be blank!</div>
+                                                  </div>
+                                                  <div class="col-md-4 my-auto mt-3">
+                                                      <input class="form-control" type="number" name="telefonoMama" placeholder="Nº telefonico" required>
+                                                      <div class="valid-feedback">Telefono field is valid!</div>
+                                                      <div class="invalid-feedback">Telefono field cannot be blank!</div>
+                                                  </div>
+                                                  <div class="col-md-1"></div>
+                                                  <div class="col-md-7">
+                                                      <input class="form-control" type="text" name="direccionMama"placeholder="Direccion" required>
+                                                      <div class="valid-feedback">Direccion field is valid!</div>
+                                                      <div class="invalid-feedback">Direccion field cannot be blank!</div>
+                                                  </div>
+                                                  <div class="col-md-12">
+                                                      <input class="form-control" type="email" name="correoMama"placeholder="Correo electronico" required>
+                                                      <div class="valid-feedback">Correo field is valid!</div>
+                                                      <div class="invalid-feedback">Correo field cannot be blank!</div>
+                                                  </div>
+                                              </div>
                                             </div>
                                             <br>
-                                            <div class="col-md-12 encabezado"> {{ __('Informacion del Padre') }}</div>
-                                            <div class="input-group">
+                                            <div class="col-md-12 encabezado">
+                                              {{ __('Informacion del Padre') }}
+                                              <a class="texto" href="javascript:MostrarOcultar('padre');">
+                                                👇
+                                              </a>
+                                            </div>
+                                            <div class="container cp_oculta" id="padre">
+                                              <div class="input-group">
                                                 <div class="col-md-6">
                                                     <input class="form-control" type="text" name="nombrePapa"placeholder="Nombre completo" required>
                                                     <div class="valid-feedback">Nombre field is valid!</div>
@@ -242,6 +259,7 @@
                                                     <div class="valid-feedback">Correo field is valid!</div>
                                                     <div class="invalid-feedback">Correo field cannot be blank!</div>
                                                 </div>
+                                            </div>
                                             </div>
                                             <br>
                                             <div class="input-group">

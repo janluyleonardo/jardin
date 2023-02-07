@@ -32,3 +32,6 @@ Route::middleware([
     Route::get('/export', [DirectoriesController::class, 'export'])->name('export');
 });
 
+Route::get('/prueba', function () {
+  return view('prueba');
+});
