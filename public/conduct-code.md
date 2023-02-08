@@ -1,4 +1,4 @@
-The systemplus code of conduct is derived from the Ruby code of conduct. Any violations of the code of conduct may be reported to Taylor Otwell (taylor@laravel.com):
+The systemplus code of conduct is derived from the Ruby code of conduct. Any violations of the code of conduct may be reported to Janluy moreno (janluy.moreno@gmail.com):
 
 Participants will be tolerant of opposing views.
 Participants must ensure that their language and actions are free of personal attacks and disparaging personal remarks.
