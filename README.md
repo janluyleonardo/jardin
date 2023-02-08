@@ -32,7 +32,7 @@ Thank you for considering contributing to the System plus plataform! The contrib
 
 ## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct]().
 
 ## Security Vulnerabilities
 
