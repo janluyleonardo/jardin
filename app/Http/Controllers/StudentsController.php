@@ -8,6 +8,7 @@ use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use PDF;
 
 class StudentsController extends Controller
 {
@@ -54,9 +55,11 @@ class StudentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function addStudent(Request $request)
+    public function imprimir($id)
     {
-      return "store";
+      $student = Student::findOrFail($id);
+      $pdf = PDF::loadView('students.pdf', compact('student'));
+      return $pdf->download($student->nomAlumno.'.pdf');
     }
 
     /**

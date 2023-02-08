@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\DirectoriesController;
+// use PDF;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,8 +29,13 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
     Route::resource('/students', StudentsController::class);
+    Route::get('/imprimir/{id}', [StudentsController::class, 'imprimir'])->name('imprimir');
     Route::resource('/directories', DirectoriesController::class);
     Route::get('/export', [DirectoriesController::class, 'export'])->name('export');
+    // Route::get('/imprimir', function () {
+    //   $pdf = PDF::loadView('students.show');
+    //   return $pdf->download('students.pdf');
+    // })->name('imprimir');
 });
 
 Route::get('/prueba', function () {
