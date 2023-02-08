@@ -28,7 +28,7 @@ Janluy Leonardo Moreno Coronado
 
 ## Contributing
 
-Thank you for considering contributing to the System plus plataform! The contribution guide can be found in the [contribute]({{APP_URL}}/images/qr-contributes.jpeg).
+Thank you for considering contributing to the System plus plataform! The contribution guide can be found in the [contribute](https://github.com/janluyleonardo/jardin/blob/main/public/images/qr-contributes.jpeg).
 
 ## Code of Conduct
 
