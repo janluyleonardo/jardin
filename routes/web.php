@@ -32,10 +32,6 @@ Route::middleware([
     Route::get('/imprimir/{id}', [StudentsController::class, 'imprimir'])->name('imprimir');
     Route::resource('/directories', DirectoriesController::class);
     Route::get('/export', [DirectoriesController::class, 'export'])->name('export');
-    // Route::get('/imprimir', function () {
-    //   $pdf = PDF::loadView('students.show');
-    //   return $pdf->download('students.pdf');
-    // })->name('imprimir');
 });
 
 Route::get('/prueba', function () {
