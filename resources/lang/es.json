@@ -200,5 +200,9 @@
     "Students Directory": "Directorio de alumnos",
     "Export Directory": "Exportar directorio",
     "See": "Ver",
-    "Edit": "Editar"
+    "Edit": "Editar",
+    "health": "Salud",
+    "Health check": "Control de salud",
+    "Export Health check": "Exportar control de salud",
+    "Edit health check": "Editar control de salud"
 }

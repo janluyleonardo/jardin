@@ -4,17 +4,6 @@
             {{ __('Manage Incomes') }}
         </h2>
     </x-slot>
-    <script languaje="Javascript">
-      document.write('<style type="text/css">div.cp_oculta{display: none;}</style>');
-      function MostrarOcultar(capa,enlace)
-      {
-        if (document.getElementById)
-        {
-            var aux = document.getElementById(capa).style;
-            aux.display = aux.display? "":"block";
-        }
-      }
-    </script>
     <div class="container">
         <div class="row py-0">
             <div class="col-md-6 mx-auto py-1">
@@ -71,9 +60,13 @@
                                                     Fecha de{{ __('Registration') }}
                                                 </div>
                                             </div>
-                                            <div class="col-md-12 encabezado">
-                                              {{ __('Informacion del(a) niño(a)') }}
-                                              <a class="texto" href="javascript:MostrarOcultar('Informacion');">👇</a>
+                                            <div class="row ">
+                                              <div class="col-md-11 encabezado">
+                                                {{ __('Informacion del(a) niño(a)') }}
+                                              </div>
+                                              <div class="col-md-1 encabezado">
+                                                <a class="texto" href="javascript:MostrarOcultar('Informacion');">👇</a>
+                                              </div>
                                             </div>
                                             <div class="container cp_oculta" id="Informacion">
                                               <div class="input-group">
@@ -105,7 +98,7 @@
                                                   </div>
                                               </div>
                                               <div class="input-group">
-                                                <div class="col-md-4 my-auto mt-4">
+                                                <div class="col-md-6 my-auto mt-4">
                                                     <center>
                                                         <input type="radio" class="btn-check" name="documentType" id="docTypeRc" value="RC">
                                                         <label class="btn btn-sm btn-outline-secondary" for="docTypeRc">RC</label>
@@ -130,15 +123,12 @@
                                               <div class="input-group">
                                                 <div class="col-md-6 mt-1 pt-3 mx-auto">
                                                     Reg de salud:
-                                                    <input type="radio" class="btn-check" name="Esalud" id="RC" value="RC" autocomplete="off" required>
+                                                    <input type="radio" class="btn-check" name="Esalud" id="RC" value="RC">
                                                     <label class="btn btn-sm btn-outline-secondary" for="RC">RC</label>
-
-                                                    <input type="radio" class="btn-check" name="Esalud" id="RS" value="RS" autocomplete="off" required>
+                                                    <input type="radio" class="btn-check" name="Esalud" id="RS" value="RS" required>
                                                     <label class="btn btn-sm btn-outline-secondary" for="RS">RS</label>
-
-                                                    <input type="radio" class="btn-check" name="Esalud" id="ESP" value="ESP" autocomplete="off" required>
+                                                    <input type="radio" class="btn-check" name="Esalud" id="ESP" value="ESP" required>
                                                     <label class="btn btn-sm btn-outline-secondary" for="ESP">ESP</label>
-
                                                     <div class="valid-feedback mv-up">You selected a regimen de salud de salud!</div>
                                                     <div class="invalid-feedback mv-up">Please select a regimen de salud de salud!</div>
                                                 </div>
@@ -187,10 +177,13 @@
                                                 </div>
                                               </div>
                                             </div>
-                                            <br>
-                                            <div class="encabezado col-md-12 mt-1">
-                                              {{ __('Informacion de la Madre') }}
-                                              <a class="texto" href="javascript:MostrarOcultar('Madre');">👇</a>
+                                            <div class="row">
+                                              <div class="encabezado col-md-11 mt-1">
+                                                {{ __('Informacion de la Madre') }}
+                                              </div>
+                                              <div class="encabezado col-md-1 mt-1">
+                                                <a class="texto" href="javascript:MostrarOcultar('Madre');">👇</a>
+                                              </div>
                                             </div>
                                             <div class="container cp_oculta" id="Madre">
                                                 <div class="input-group">
@@ -223,10 +216,13 @@
                                                   </div>
                                               </div>
                                             </div>
-                                            <br>
-                                            <div class="col-md-12 encabezado">
-                                              {{ __('Informacion del Padre') }}
-                                              <a class="texto" href="javascript:MostrarOcultar('padre');">👇</a>
+                                            <div class="row">
+                                              <div class="col-md-11 encabezado mt-1">
+                                                {{ __('Informacion del Padre') }}
+                                              </div>
+                                              <div class="col-md-1 encabezado mt-1">
+                                                <a class="texto" href="javascript:MostrarOcultar('padre');">👇</a>
+                                              </div>
                                             </div>
                                             <div class="container cp_oculta" id="padre">
                                               <div class="input-group">
@@ -259,10 +255,13 @@
                                                 </div>
                                               </div>
                                             </div>
-                                            <br>
-                                            <div class="col-md-12 encabezado">
-                                              {{ __('Primer responsable') }}
-                                              <a class="texto" href="javascript:MostrarOcultar('responsable1');">👇</a>
+                                            <div class="row">
+                                              <div class="col-md-11 encabezado mt-1">
+                                                {{ __('Primer responsable') }}
+                                              </div>
+                                              <div class="col-md-1 encabezado mt-1">
+                                                <a class="texto" href="javascript:MostrarOcultar('responsable1');">👇</a>
+                                              </div>
                                             </div>
                                             <div class="container cp_oculta" id="responsable1">
                                               <div class="input-group">
@@ -290,10 +289,13 @@
                                                   </div>
                                               </div>
                                             </div>
-                                            <br>
-                                            <div class="col-md-12 encabezado">
-                                              {{ __('Segundo responsable') }}
-                                              <a class="texto" href="javascript:MostrarOcultar('responsable2');">👇</a>
+                                            <div class="row">
+                                              <div class="col-md-11 encabezado mt-1">
+                                                {{ __('Segundo responsable') }}
+                                              </div>
+                                              <div class="col-md-1 encabezado mt-1">
+                                                <a class="texto" href="javascript:MostrarOcultar('responsable2');">👇</a>
+                                              </div>
                                             </div>
                                             <div class="container cp_oculta" id="responsable2">
                                             <div class="input-group">
@@ -321,10 +323,13 @@
                                                 </div>
                                             </div>
                                             </div>
-                                            <br>
-                                            <div class="col-md-12 encabezado">
-                                              {{ __('Tercer responsable') }}
-                                              <a class="texto" href="javascript:MostrarOcultar('responsable3');">👇</a>
+                                            <div class="row">
+                                              <div class="col-md-11 encabezado mt-1">
+                                                {{ __('Tercer responsable') }}
+                                              </div>
+                                              <div class="col-md-1 encabezado mt-1">
+                                                <a class="texto" href="javascript:MostrarOcultar('responsable3');">👇</a>
+                                              </div>
                                             </div>
                                             <div class="container cp_oculta" id="responsable3">
                                               <div class="input-group">
@@ -416,5 +421,15 @@
             var edadFinal = edad + " años, " + meses + " meses " + dias + " días"
             document.getElementById("EdadAlumno").value = edadFinal;
         }
+
+      document.write('<style type="text/css">div.cp_oculta{display: none;}</style>');
+      function MostrarOcultar(capa,enlace)
+      {
+        if (document.getElementById)
+        {
+            var aux = document.getElementById(capa).style;
+            aux.display = aux.display? "":"block";
+        }
+      }
     </script>
 </x-app-layout>

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\DirectoriesController;
+use App\Http\Controllers\HealthController;
 // use PDF;
 
 /*
@@ -31,6 +32,7 @@ Route::middleware([
     Route::resource('/students', StudentsController::class);
     Route::get('/imprimir/{id}', [StudentsController::class, 'imprimir'])->name('imprimir');
     Route::resource('/directories', DirectoriesController::class);
+    Route::resource('/health', HealthController::class);
     Route::get('/export', [DirectoriesController::class, 'export'])->name('export');
 });
 
