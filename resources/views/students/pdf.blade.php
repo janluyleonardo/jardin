@@ -48,17 +48,32 @@
       flex: 0 0 auto;
       width: 50%
     }
-  </style>
+    body {
+      background-image: url('{{env('APP_URL')}}images/jardin-logo.png');
+      background-repeat: no-repeat;
+      background-size:50%;
+      background-position: 50% 50%;
+    }
+    table{
+      background-color:rgba(255, 255, 255, 0.7);
+    }
+    </style>
 </head>
 <body>
 <header>
+  @if ($student->genero == 'Masculino')
   <div class="div-img">
-    <img src="{{ env('APP_URL') }}/images/jardin-logo.png" alt="jardin-logo" width="100">
+    <img src="{{ env('APP_URL') }}/images/icono-niño.png" alt="jardin-logo" width="100">
   </div>
+  @else
+  <div class="div-img">
+    <img src="{{ env('APP_URL') }}/images/icono-niña.png" alt="jardin-logo" width="100">
+  </div>
+  @endif
 </header>
 
 <main>
-  <table width="100%" cellspacing="2">
+  <table width="100%">
     <thead>
       <th>
         <td><b>{{ Str::upper($student->nomAlumno)}}</b></td>
