@@ -22,7 +22,7 @@ class HealthController extends Controller
       $healths = controlHealth::where('nomAlumno','LIKE','%'.$texto.'%')
                   ->orWhere('numDocumento','LIKE','%'.$texto.'%')
                   ->orderBy('id')
-                  ->paginate();
+                  ->paginate(5);
       // $healths = controlHealth::orderBy('id', 'desc')->paginate(5);
       // // $healths = controlHealth::where('nomAlumno','LIKE','%'.$texto.'%')
       // //             ->orWhere('numDocumento','LIKE','%'.$texto.'%')
@@ -104,8 +104,13 @@ class HealthController extends Controller
      */
     public function update(Request $request, controlHealth $health)
     {
-      $health->update($request->all());
-      return redirect()->route('health.index', $health)->banner('Registro actualizado correctamente.');
+      try {
+        $health->update($request->all());
+        return redirect()->route('health.index', $health)->banner('Registro actualizado correctamente.');
+      } catch (\Throwable $th) {
+        //throw $th;
+        return redirect()->route('health.index', $health)->banner('Error actualizando registro de salud: '.$th);
+      }
     }
 
     /**

@@ -29,7 +29,7 @@
                       <div class="col-md-2"><h5>5</h5></div>
                       <div class="col-md-2"><h5>6</h5></div>
                       <div class="col-md-2"><h5>12</h5></div>
-                      <div class="col-md-1"></h5></div>
+                      <div class="col-md-1"></div>
                     </div>
                   </div>
                   <div class="col-md-6 mx-auto">
@@ -85,11 +85,11 @@
                     </div>
                   </div>
                   <div class="col-md-1">
-                    <a title="Editar" href="#deleteModal{{$health->id}}" class="sombra btn btn-sm btn-warning" data-bs-toggle="modal">{{__('Edit')}}</a>
+                    <a title="Editar" href="#updateModal{{$health->id}}" class="sombra btn btn-sm btn-warning" data-bs-toggle="modal">{{__('Edit')}}</a>
                   </div>
               </div>
-              <!-- Modal delete-->
-              <div class="modal fade" id="deleteModal{{$health->id}}" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+              <!-- Modal update-->
+              <div class="modal fade" id="updateModal{{$health->id}}" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content sombra bg-white">
                     <div class="modal-header sombra bn-100">
@@ -120,33 +120,33 @@
                                 <div class="invalid-feedback">Edad de alumno field cannot be blank! </div>
                               </div>
                               <div class="col-md-5">
-                                <input class="form-control" type="date" name="examenMedico" id="examenMedico">
+                                <input class="form-control" type="date" name="examenMedico" value="{{$health->examenMedico;}}" id="examenMedico">
                                 <div class="valid-feedback mv-up">You selected a fecha de examen medico!</div>
                                 <div class="invalid-feedback mv-up">Please select a fecha de examen medico!</div>
                                 Examen medico
                               </div>
                               <div class="col-md-2"></div>
                               <div class="col-md-5">
-                                <input class="form-control" type="date" name="examenVisual" id="examenVisual">
+                                <input class="form-control" type="date" name="examenVisual" id="examenVisual" value="{{$health->examenVisual;}}">
                                 <div class="valid-feedback mv-up">You selected a fecha de examen visual!</div>
                                 <div class="invalid-feedback mv-up">Please select a fecha de examen visual!</div>
                                 Examen visual
                               </div>
                               <div class="col-md-5">
-                                <input class="form-control" type="date" name="examenAuditivo" id="examenAuditivo">
+                                <input class="form-control" type="date" name="examenAuditivo" id="examenAuditivo" value="{{$health->examenAuditivo;}}">
                                 <div class="valid-feedback mv-up">You selected a fecha de examen auditivo!</div>
                                 <div class="invalid-feedback mv-up">Please select a fecha de examen auditivo!</div>
                                 Examen auditivo
                               </div>
                               <div class="col-md-2"></div>
                               <div class="col-md-5">
-                                <input class="form-control" type="date" name="examenOdontologico" id="examenOdontologico">
+                                <input class="form-control" type="date" name="examenOdontologico" id="examenOdontologico" value="{{$health->examenOdontologico;}}">
                                 <div class="valid-feedback mv-up">You selected a fecha de examen odontologico!</div>
                                 <div class="invalid-feedback mv-up">Please select a fecha de examen odontologico!</div>
                                 Examen odontologico
                               </div>
                               <div class="col-md-5">
-                                <input class="form-control" type="date" name="cdActual" id="cdActual">
+                                <input class="form-control" type="date" name="cdActual" id="cdActual" value="{{$health->cdActual;}}">
                                 <div class="valid-feedback mv-up">You selected a fecha de crecimiento y esarrollo!</div>
                                 <div class="invalid-feedback mv-up">Please select a fecha de crecimiento y esarrollo!</div>
                                 Crecimiento y desarrollo
