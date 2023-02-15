@@ -1,3 +1,7 @@
+-- backup_students
+-- table students
+-- after
+-- delete
 INSERT INTO `std_deleteds`(
  `idDeleted`,
  `nivel`,
@@ -82,3 +86,17 @@ INSERT INTO `std_deleteds`(
   old.telTerRes,
   old.created_at,
   old.updated_at)
+
+-- charge_healt
+-- table students
+-- after
+-- insert
+INSERT INTO `control_healths`(
+  `nomAlumno`,
+  `numDocumento`,
+  `edadAlumno`
+) VALUES (
+  new.nomAlumno,
+  new.numDocumento,
+  new.edadAlumno
+)
