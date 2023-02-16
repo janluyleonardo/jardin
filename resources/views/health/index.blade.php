@@ -151,7 +151,7 @@
                               </div>
                               <div class="col-md-2"></div>
                               <div class="col-md-5">
-                                {{-- <input class="form-control" type="date" name="cdProximo" id="cdProximo" value="{{$health->cdProximo;}}"> --}}
+
                               </div>
                             </div>
                         </div>
