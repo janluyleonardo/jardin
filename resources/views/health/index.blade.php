@@ -31,13 +31,13 @@
                     <div class="col-md-1"></div>
                   </div>
                 </div>
-                <div class="col-md-6 mx-auto">
-                  {{count($registros)}}
+                <div class="col-md-6 mx-auto my-auto">
+                  <strong>{{__('Total students in control') .": ". count($registros)}}</strong>
                 </div>
                 <div class="col-md-6 mx-auto">
                   <div class="row">
                     <form action="" method="get">
-                      <div class="row flex-row-reverse" style="background-color:red;">
+                      <div class="row flex-row-reverse" >
                         <div class="col-md-4 my-1">
                           <input type="submit" class="sombra btn btn-info" value="Buscar">
                         </div>
@@ -166,7 +166,7 @@
                     <div class="modal-footer bn-100">
                       <button type="button" class=" sombra btn btn-warning" data-bs-dismiss="modal">Close</button>
                         @csrf
-                        <button id="submit" type="submit" class="sombra btn btn-secondary">{{__('Editar health check')}}</button>
+                        <button id="submit" type="submit" class="sombra btn btn-secondary">{{__('Edit health check')}}</button>
                       </form>
                     </div>
                   </div>
