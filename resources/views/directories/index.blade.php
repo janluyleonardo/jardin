@@ -38,8 +38,8 @@
                 <div class="col-md-2"><b>Alumno</b></div>
                 <div class="col-md-2"><b>Madre alumno</b></div>
                 <div class="col-md-2"><b>Padre alumno</b></div>
-                <div class="col-md-2"><b>1er respondiente</b></div>
-                <div class="col-md-2"><b>2do respondiente</b></div>
+                <div class="col-md-2"><b>1er responsable</b></div>
+                <div class="col-md-2"><b>2do responsable</b></div>
                 <div class="col-md-1"></div>
                 @foreach ($students as $student)
                 <div class="row">
