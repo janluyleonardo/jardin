@@ -33,6 +33,7 @@ Route::middleware([
     Route::get('/imprimir/{id}', [StudentsController::class, 'imprimir'])->name('imprimir');
     Route::resource('/directories', DirectoriesController::class);
     Route::resource('/health', HealthController::class);
+    Route::put('editarRegistro/{id}', [HealthController::class, 'update'])->name('editarRegistro');
     Route::get('/export', [DirectoriesController::class, 'export'])->name('export');
 });
 

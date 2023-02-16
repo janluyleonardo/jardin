@@ -11,43 +11,41 @@
         <div class="container">
           <div class="card bg-light mt-2 mb-2 mx-2">
             <div class="card-header">
-              <form action="" method="get">
-                <div class="row">
-                  <div class="col-md-12" style="background:rgba(0, 0, 255, 0.1);">
-                    <div class="row">
-                      <div class="col-md-12 mx-auto text-center"><h1>Examenes totales:</h1></div>
-                      <div class="col-md-1"></div>
-                      <div class="col-md-2"><h5>Medico:</h5></div>
-                      <div class="col-md-2"><h5>Visual:</h5></div>
-                      <div class="col-md-2"><h5>Auditivo:</h5></div>
-                      <div class="col-md-2"><h5>Odontologico:</h5></div>
-                      <div class="col-md-2"><h5>Crecimiento y desarrollo:</h5></div>
-                      <div class="col-md-1"></h5></div>
-                      <div class="col-md-1"></div>
-                      <div class="col-md-2"><h5>2</h5></div>
-                      <div class="col-md-2"><h5>5</h5></div>
-                      <div class="col-md-2"><h5>5</h5></div>
-                      <div class="col-md-2"><h5>6</h5></div>
-                      <div class="col-md-2"><h5>12</h5></div>
-                      <div class="col-md-1"></div>
-                    </div>
-                  </div>
-                  <div class="col-md-6 mx-auto">
-                    <div class="row">
-                      <form action="" method="get">
-                        <div class="row flex-row-reverse">
-                          <div class="col-md-4 my-1">
-                            <input type="submit" class="sombra btn btn-info" value="Buscar">
-                          </div>
-                          <div class="col-auto my-1">
-                            <input type="text" class="form-control" name="texto" id="texto" value="{{$texto}}">
-                          </div>
-                        </div>
-                      </form>
-                    </div>
+              <div class="row">
+                <div class="col-md-12" style="background:rgba(0, 0, 255, 0.1);">
+                  <div class="row">
+                    <div class="col-md-12 mx-auto text-center"><h1>Examenes totales:</h1></div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2"><h5>Medico:</h5></div>
+                    <div class="col-md-2"><h5>Visual:</h5></div>
+                    <div class="col-md-2"><h5>Auditivo:</h5></div>
+                    <div class="col-md-2"><h5>Odontologico:</h5></div>
+                    <div class="col-md-2"><h5>Crecimiento y desarrollo:</h5></div>
+                    <div class="col-md-1"></h5></div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2"><h5>2</h5></div>
+                    <div class="col-md-2"><h5>5</h5></div>
+                    <div class="col-md-2"><h5>5</h5></div>
+                    <div class="col-md-2"><h5>6</h5></div>
+                    <div class="col-md-2"><h5>12</h5></div>
+                    <div class="col-md-1"></div>
                   </div>
                 </div>
-              </form>
+                <div class="col-md-6 mx-auto">
+                  <div class="row">
+                    <form action="" method="get">
+                      <div class="row flex-row-reverse">
+                        <div class="col-md-4 my-1">
+                          <input type="submit" class="sombra btn btn-info" value="Buscar">
+                        </div>
+                        <div class="col-auto my-1">
+                          <input type="text" class="form-control" name="texto" id="texto" value="{{$texto}}">
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="card-body">
               @foreach ($healths as $health)
@@ -99,7 +97,7 @@
                     <div class="modal-body sombra">
                       <div class="row">
                         <div class="col-md-12" style="background:rgba(0, 0, 0, 0.1);">
-                          <form action="{{ route('health.update', $health) }}" method="post" class="requires-validation" novalidate>
+                          <form action="{{ route('editarRegistro', $health->id) }}" method="post" class="requires-validation" novalidate>
                             @method('put')
                             @csrf
                             <div class="input-group">
@@ -153,7 +151,7 @@
                               </div>
                               <div class="col-md-2"></div>
                               <div class="col-md-5">
-
+                                {{-- <input class="form-control" type="date" name="cdProximo" id="cdProximo" value="{{$health->cdProximo;}}"> --}}
                               </div>
                             </div>
                         </div>

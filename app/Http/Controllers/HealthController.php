@@ -49,28 +49,7 @@ class HealthController extends Controller
      */
     public function store(StoreStudent $request)
     {
-      $cdActual = $request->cdActual;
-      $cdProximo = Carbon::create($cdActual);
-      $cdProximo->addMonths(6)->format('Y-m-d');
-      $request->merge([
-        'nomAlumno' =>($request->nomAlumno),
-      ]);
-      $student = new controlHealth();
-      $student->nomAlumno = $request->nomAlumno;
-      $student->numDocumento = $request->numDocumento;
-      $student->edadAlumno = $request->edadAlumno;
-      $student->examenMedico = $request->examenMedico;
-      $student->examenVisual = $request->examenVisual;
-      $student->examenAuditivo = $request->examenAuditivo;
-      $student->examenOdontologico = $request->examenOdontologico;
-      $student->cdActual = $request->cdActual;
-      $student->cdProximo = $cdProximo;
-      try {
-        $student->save();
-        return redirect()->route('health.index', $student)->banner('Registro almacenado correctamente.');
-      } catch (\Throwable $th) {
-        return redirect()->route('health.index')->dangerBanner('Registro duplicado por favor validar el documento del alumno al cual le esta ingresando los datos');
-      }
+      //
     }
 
     /**
@@ -102,14 +81,28 @@ class HealthController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, controlHealth $health)
+    public function update(Request $request, $id)
     {
+      $date = Carbon::parse($request->cdActual);
+      $final = $date->addMonths(6)->format('Y-m-d');
+      $request->merge([
+        'nomAlumno' =>($request->nomAlumno),
+      ]);
+      $health = controlHealth::findOrFail($id);
+      $health->nomAlumno = $request->nomAlumno;
+      $health->numDocumento = $request->numDocumento;
+      $health->edadAlumno = $request->edadAlumno;
+      $health->examenMedico = $request->examenMedico;
+      $health->examenVisual = $request->examenVisual;
+      $health->examenAuditivo = $request->examenAuditivo;
+      $health->examenOdontologico = $request->examenOdontologico;
+      $health->cdActual = $request->cdActual;
+      $health->cdProximo = $final;
       try {
-        $health->update($request->all());
+        $health->save();
         return redirect()->route('health.index', $health)->banner('Registro actualizado correctamente.');
       } catch (\Throwable $th) {
-        //throw $th;
-        return redirect()->route('health.index', $health)->banner('Error actualizando registro de salud: '.$th);
+        return redirect()->route('health.index')->dangerBanner('Registro duplicado por favor validar el documento del alumno al cual le esta ingresando los datos');
       }
     }
 
