@@ -19,6 +19,12 @@ class HealthController extends Controller
     public function index(Request $request)
     {
       $texto = trim($request->get('texto'));
+      $registros = controlHealth::all();
+      $cantMedico = controlHealth::where('examenmedico','>=','2023-01-01')->count();
+      $cantVisual = controlHealth::where('examenvisual','>=','2023-01-01')->count();
+      $cantAuditivo = controlHealth::where('examenauditivo','>=','2023-01-01')->count();
+      $cantOdontologico = controlHealth::where('examenodontologico','>=','2023-01-01')->count();
+      $cantCreDesarrollo = controlHealth::where('cdActual','>=','2023-01-01')->count();
       $healths = controlHealth::where('nomAlumno','LIKE','%'.$texto.'%')
                   ->orWhere('numDocumento','LIKE','%'.$texto.'%')
                   ->orderBy('id')
@@ -28,7 +34,7 @@ class HealthController extends Controller
       // //             ->orWhere('numDocumento','LIKE','%'.$texto.'%')
       // //             ->orderBy('id')
       // //             ->paginate();
-      return view('health.index',compact('healths','texto'));
+      return view('health.index',compact('registros','healths','texto','cantMedico','cantVisual','cantAuditivo','cantOdontologico','cantCreDesarrollo'));
     }
 
     /**

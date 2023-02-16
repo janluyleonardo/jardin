@@ -23,18 +23,21 @@
                     <div class="col-md-2"><h5>Crecimiento y desarrollo:</h5></div>
                     <div class="col-md-1"></h5></div>
                     <div class="col-md-1"></div>
-                    <div class="col-md-2"><h5>2</h5></div>
-                    <div class="col-md-2"><h5>5</h5></div>
-                    <div class="col-md-2"><h5>5</h5></div>
-                    <div class="col-md-2"><h5>6</h5></div>
-                    <div class="col-md-2"><h5>12</h5></div>
+                    <div class="col-md-2"><h5>{{$cantMedico}}</h5></div>
+                    <div class="col-md-2"><h5>{{$cantVisual}}</h5></div>
+                    <div class="col-md-2"><h5>{{$cantAuditivo}}</h5></div>
+                    <div class="col-md-2"><h5>{{$cantOdontologico}}</h5></div>
+                    <div class="col-md-2"><h5>{{$cantCreDesarrollo}}</h5></div>
                     <div class="col-md-1"></div>
                   </div>
                 </div>
                 <div class="col-md-6 mx-auto">
+                  {{count($registros)}}
+                </div>
+                <div class="col-md-6 mx-auto">
                   <div class="row">
                     <form action="" method="get">
-                      <div class="row flex-row-reverse">
+                      <div class="row flex-row-reverse" style="background-color:red;">
                         <div class="col-md-4 my-1">
                           <input type="submit" class="sombra btn btn-info" value="Buscar">
                         </div>
@@ -55,14 +58,14 @@
                       <strong><h5>{{$health->nomAlumno}} {{$health->numDocumento}}</h5></strong>
                     </div>
                   </div>
-                  {{-- encabezado de la tabla --}}
+                  <!-- encabezado de la tabla -->
                   <div class="col-md-2"><b>E medico</b></div>
                   <div class="col-md-2"><b>E visual</b></div>
                   <div class="col-md-2"><b>E auditivo</b></div>
                   <div class="col-md-2"><b>E odontologico</b></div>
                   <div class="col-md-3"><b>Crecimiento y Desarrollo</b></div>
                   <div class="col-md-1"></div>
-                  {{-- cuerpo de la tabla --}}
+                  <!-- cuerpo de la tabla -->
                   <div class="col-md-2">
                     <div class="col-md-12">{{$health->examenMedico}}</div>
                   </div>
