@@ -98,9 +98,11 @@ class HealthController extends Controller
       $health->examenOdontologico = $request->examenOdontologico;
       $health->cdActual = $request->cdActual;
       $health->cdProximo = $final;
+      $health->cdEntregado = $request->cdEntregado;
       try {
-        $health->save();
-        return redirect()->route('health.index', $health)->banner('Registro actualizado correctamente.');
+      $health->update();
+      $texto = $health->numDocumento;
+      return redirect()->route('health.index', compact('texto','health'))->banner('Registro actualizado correctamente.');
       } catch (\Throwable $th) {
         return redirect()->route('health.index')->dangerBanner('Registro duplicado por favor validar el documento del alumno al cual le esta ingresando los datos');
       }

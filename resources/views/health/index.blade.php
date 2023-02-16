@@ -151,7 +151,10 @@
                               </div>
                               <div class="col-md-2"></div>
                               <div class="col-md-5">
-
+                                <input class="form-control" type="date" name="cdEntregado" id="cdEntregado" value="{{$health->cdEntregado;}}">
+                                <div class="valid-feedback mv-up">You selected a fecha de crecimiento y esarrollo!</div>
+                                <div class="invalid-feedback mv-up">Please select a fecha de crecimiento y esarrollo!</div>
+                                CD entregado
                               </div>
                             </div>
                         </div>
