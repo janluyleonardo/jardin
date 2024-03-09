@@ -46,14 +46,14 @@ class StudentsController extends Controller
           'nomAlumno' =>($request->nomAlumno),
       ]);
       $student = Student::create($request->all());
-      return redirect()->route('students.show', $student);
+      return redirect()->route('students.show', $student)->banner('Registro creado exitosamente.');;
     }
 
     /**
-     * Store a newly created resource in storage.
+     * imprimir
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  mixed $id
+     * @return void
      */
     public function imprimir($id)
     {
@@ -97,7 +97,7 @@ class StudentsController extends Controller
     public function update(Request $request, Student $student)
     {
       $student->update($request->all());
-      return redirect()->route('students.show', $student);
+      return redirect()->route('students.show', $student)->banner('Registro actualizado exitosamente.');
     }
 
     /**
