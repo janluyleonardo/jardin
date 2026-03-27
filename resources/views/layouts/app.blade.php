@@ -51,7 +51,7 @@
 
         @livewireScripts
         <script src="{{ asset('js/app.js') }}"></script>
-        <script src="{{ asset('js/formulario.js') }}"></script>
+        {{-- <script src="{{ asset('js/formulario.js') }}"></script> --}}
         <script src="{{ asset('js/bootstrap.js') }}"></script>
         <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
         {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.min.js"></script> --}}
